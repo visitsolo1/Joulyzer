@@ -1,0 +1,187 @@
+{
+  "tool_call": {
+    "name": "analyze_journal",
+    "arguments": {
+      "csv_path": "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/integration_run/agent_session_journal.csv",
+      "format": "json"
+    }
+  },
+  "tool_schema_name": "analyze_journal",
+  "result_type": "str",
+  "result_preview": {
+    "trade_count": 120,
+    "win_count": 69,
+    "loss_count": 51,
+    "open_count": 0,
+    "win_rate": 0.575,
+    "net_pnl": 4674.376499999999,
+    "gross_profit": 15699.695099999997,
+    "gross_loss": 11025.3186,
+    "profit_factor": 1.4239674760963368,
+    "avg_win": 227.53181304347825,
+    "avg_loss": -216.1827176470588,
+    "expectancy": 38.95313749999997,
+    "max_drawdown": 2687.5114999999996,
+    "avg_hold_minutes": 42.23833333333333,
+    "best_trade": 2591.7146,
+    "worst_trade": -2042.3364,
+    "by_symbol": [
+      {
+        "symbol": "BTCUSDT",
+        "trades": 24,
+        "wins": 14,
+        "losses": 10,
+        "net_pnl": 4805.051799999998,
+        "win_rate": 0.5833333333333334
+      },
+      {
+        "symbol": "DOGEUSDT",
+        "trades": 27,
+        "wins": 16,
+        "losses": 11,
+        "net_pnl": -0.006000000000000001,
+        "win_rate": 0.5925925925925926
+      },
+      {
+        "symbol": "XRPUSDT",
+        "trades": 16,
+        "wins": 7,
+        "losses": 9,
+        "net_pnl": -0.13940000000000002,
+        "win_rate": 0.4375
+      },
+      {
+        "symbol": "SOLUSDT",
+        "trades": 23,
+        "wins": 14,
+        "losses": 9,
+        "net_pnl": -14.6911,
+        "win_rate": 0.6086956521739131
+      },
+      {
+        "symbol": "ETHUSDT",
+        "trades": 30,
+        "wins": 18,
+        "losses": 12,
+        "net_pnl": -115.83880000000002,
+        "win_rate": 0.6
+      }
+    ],
+    "by_hour": {
+      "13": {
+        "trades": 6,
+        "net_pnl": 83.64040000000001
+      },
+      "14": {
+        "trades": 7,
+        "net_pnl": -303.64110000000005
+      },
+      "16": {
+        "trades": 4,
+        "net_pnl": 1570.1805
+      },
+      "17": {
+        "trades": 6,
+        "net_pnl": -772.2022
+      },
+      "18": {
+        "trades": 6,
+        "net_pnl": 1153.3219
+      },
+      "19": {
+        "trades": 3,
+        "net_pnl": -4.1976
+      },
+      "20": {
+        "trades": 8,
+        "net_pnl": -11.209099999999998
+      },
+      "22": {
+        "trades": 5,
+        "net_pnl": -1343.5567
+      },
+      "23": {
+        "trades": 6,
+        "net_pnl": 97.76839999999999
+      },
+      "0": {
+        "trades": 4,
+        "net_pnl": -66.1181
+      },
+      "1": {
+        "trades": 5,
+        "net_pnl": 1260.9624
+      },
+      "3": {
+        "trades": 3,
+        "net_pnl": -1178.4664
+      },
+      "4": {
+        "trades": 4,
+        "net_pnl": -21.491300000000003
+      },
+      "5": {
+        "trades": 4,
+        "net_pnl": 814.6953000000001
+      },
+      "6": {
+        "trades": 4,
+        "net_pnl": -1423.2686
+      },
+      "8": {
+        "trades": 4,
+        "net_pnl": 1010.9563
+      },
+      "9": {
+        "trades": 6,
+        "net_pnl": 58.0927
+      },
+      "10": {
+        "trades": 7,
+        "net_pnl": 1.0161
+      },
+      "11": {
+        "trades": 5,
+        "net_pnl": 2539.0009
+      },
+      "12": {
+        "trades": 5,
+        "net_pnl": -4762.181500000001
+      },
+      "15": {
+        "trades": 6,
+        "net_pnl": -52.19699999999999
+      },
+      "21": {
+        "trades": 5,
+        "net_pnl": 6080.6607
+      },
+      "2": {
+        "trades": 4,
+        "net_pnl": -0.011699999999999999
+      },
+      "7": {
+        "trades": 3,
+        "net_pnl": -57.3778
+      }
+    },
+    "by_tag": {
+      "win": {
+        "trades": 69,
+        "net_pnl": 15699.695099999997
+      },
+      "intraday": {
+        "trades": 73,
+        "net_pnl": 9021.092999999997
+      },
+      "scalp": {
+        "trades": 47,
+        "net_pnl": -4346.7165
+      },
+      "loss": {
+        "trades": 51,
+        "net_pnl": -11025.3186
+      }
+    }
+  }
+}

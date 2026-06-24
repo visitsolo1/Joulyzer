@@ -1,0 +1,127 @@
+=== joulyzer CLI on examples/sample_journal.csv (text) ===
+================ Joulyzer Report ================
+Trades (closed): 7   Wins: 5   Losses: 2   Open: 1
+Win rate:        71.4%
+Net PnL:         279.00
+Gross profit:    419.00   Gross loss: 140.00
+Profit factor:   2.99
+Avg win:         83.80   Avg loss: -70.00
+Expectancy:      39.86 per trade
+Max drawdown:    100.00
+Avg hold (min):  77.4
+Best trade:      275.00   Worst: -100.00
+
+--- By symbol ---
+  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=185.00
+  ETHUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=70.00
+  SOLUSDT    trades=2    wins=2    losses=0    WR=100.0%  net=24.00
+
+--- By hour (entry) ---
+  08:00  trades=1    net=6.00
+  09:00  trades=1    net=275.00
+  10:00  trades=1    net=-100.00
+  11:00  trades=1    net=-40.00
+  13:00  trades=1    net=110.00
+  14:00  trades=1    net=10.00
+  15:00  trades=1    net=18.00
+
+--- By tag ---
+  breakout       trades=2    net=385.00
+  scalp          trades=3    net=34.00
+  fomo           trades=1    net=-40.00
+  revenge        trades=1    net=-100.00
+=================================================
+
+=== joulyzer CLI on examples/sample_journal.csv (JSON) ===
+{
+  "trade_count": 7,
+  "win_count": 5,
+  "loss_count": 2,
+  "open_count": 1,
+  "win_rate": 0.7142857142857143,
+  "net_pnl": 279.0,
+  "gross_profit": 419.0,
+  "gross_loss": 140.0,
+  "profit_factor": 2.992857142857143,
+  "avg_win": 83.8,
+  "avg_loss": -70.0,
+  "expectancy": 39.857142857142854,
+  "max_drawdown": 100.0,
+  "avg_hold_minutes": 77.42857142857143,
+  "best_trade": 275.0,
+  "worst_trade": -100.0,
+  "by_symbol": [
+    {
+      "symbol": "BTCUSDT",
+      "trades": 3,
+      "wins": 2,
+      "losses": 1,
+      "net_pnl": 185.0,
+      "win_rate": 0.6666666666666666
+    },
+    {
+      "symbol": "ETHUSDT",
+      "trades": 2,
+      "wins": 1,
+      "losses": 1,
+      "net_pnl": 70.0,
+      "win_rate": 0.5
+    },
+    {
+      "symbol": "SOLUSDT",
+      "trades": 2,
+      "wins": 2,
+      "losses": 0,
+      "net_pnl": 24.0,
+      "win_rate": 1.0
+    }
+  ],
+  "by_hour": {
+    "9": {
+      "trades": 1,
+      "net_pnl": 275.0
+    },
+    "14": {
+      "trades": 1,
+      "net_pnl": 10.0
+    },
+    "11": {
+      "trades": 1,
+      "net_pnl": -40.0
+    },
+    "13": {
+      "trades": 1,
+      "net_pnl": 110.0
+    },
+    "8": {
+      "trades": 1,
+      "net_pnl": 6.0
+    },
+    "15": {
+      "trades": 1,
+      "net_pnl": 18.0
+    },
+    "10": {
+      "trades": 1,
+      "net_pnl": -100.0
+    }
+  },
+  "by_tag": {
+    "breakout": {
+      "trades": 2,
+      "net_pnl": 385.0
+    },
+    "scalp": {
+      "trades": 3,
+      "net_pnl": 34.0
+    },
+    "fomo": {
+      "trades": 1,
+      "net_pnl": -40.0
+    },
+    "revenge": {
+      "trades": 1,
+      "net_pnl": -100.0
+    }
+  }
+}
