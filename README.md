@@ -268,25 +268,38 @@ writes live under `verifiable_usage_records/integration_run/`.
 infrastructure from three independent angles — a CLI subprocess,
 an in-process Python function call, and a JSON-RPC MCP subprocess
 — across three real input journals and all three output formats,
-plus three deliberate error paths. It also hits three live
-`api.bitget.com` public endpoints so the log proves the infra
-talks to the real exchange.
+plus three deliberate error paths. It also runs joulyzer's shipped
+demo (`examples/agent_integration.py`) as a real subprocess so the
+log captures the actual app in action, and hits three live
+`api.bitget.com` public endpoints to prove the infra talks to the
+real exchange.
 
 Every run writes a session-style log matching the pattern from
-`hasbunallah01/quant-copilot/logs/live-usage-latest.md`:
+`hasbunallah01/quant-copilot/logs/live-usage-latest.md` (see
+[`docs/verifiable-usage-records.md`](./docs/verifiable-usage-records.md)
+for the full per-file manifest):
 
 - [`live-usage-latest.md`](./verifiable_usage_records/live-usage-latest.md) —
   human-readable session timeline (numbered events, **Request** /
   **Response** JSON blocks, per-caller summary)
 - [`live-usage-latest.json`](./verifiable_usage_records/live-usage-latest.json) —
-  same session, machine-readable, full payloads
-- `live-usage-<ISO-timestamp>.{json,md}` — timestamped archive copy
+  same session, machine-readable, full payloads; every record has a
+  `session_id` field matching the reference schema
+- `live-usage-<ISO-timestamp>.{json,md}` — timestamped archive copies
   (keeps the most recent 5 runs)
+- [`sample-api-io.md`](./verifiable_usage_records/sample-api-io.md) —
+  five focused request/response pairs (one per caller + the demo run
+  + one live Bitget call)
+- [`live-bitget-server-time.txt`](./verifiable_usage_records/live-bitget-server-time.txt) —
+  raw live HTTP transcript of `api.bitget.com/api/v2/public/time`
+  with response headers verbatim
+- [`pytest-2026-06-24.txt`](./verifiable_usage_records/pytest-2026-06-24.txt) —
+  full pytest log (17 / 17 pass)
 - [`live_usage_inputs/`](./verifiable_usage_records/live_usage_inputs) —
   the real CSVs the harness consumed
 
 ```bash
-python scripts/live_usage_harness.py     # ~33 calls, ~2s wall-clock
+python scripts/live_usage_harness.py     # ~34 calls, ~2s wall-clock
 # or include in the one-shot:
 bash scripts/verify_submission.sh
 ```
@@ -321,7 +334,8 @@ scripts/
   mcp_client_demo.py               # live MCP client → server demo (logs wire traffic)
   live_usage_harness.py            # multi-caller live usage harness (CLI + function + MCP)
 verifiable_usage_records/
-  pytest_run.log                   # full test log
+  pytest_run.log                   # full test log (tee from verifier)
+  pytest-2026-06-24.txt            # focused pytest log (matches reference layout)
   cli_text_run.txt                  # CLI text + JSON output
   integration_run/
     bitget_api_call_log.jsonl       # 240 simulated Bitget API calls
@@ -330,12 +344,17 @@ verifiable_usage_records/
   live-usage-latest.md             # LIVE session timeline (judge-readable)
   live-usage-latest.json           # LIVE session (machine-readable, full payloads)
   live-usage-<TS>.{json,md}        # timestamped archive copies
+  sample-api-io.md                  # 5 focused request/response pairs
+  live-bitget-server-time.txt       # raw live api.bitget.com transcript
   live_usage_inputs/                # real CSVs the live harness consumed
   live_mcp_session.log.jsonl        # narrower MCP wire-traffic log
   live_session/
     live_journal.csv                # journal used by the live MCP session
   tool_schema.json                  # JSON-Schema tool definition
   mcp_manifest.json                 # MCP server manifest
+docs/
+  verifiable-usage-records.md       # judges' manifest: per-file table + how to regenerate
+  github-actions-tests.yml           # CI workflow config (copy to .github/workflows/ to enable)
 .github/workflows/tests.yml        # (CI config in docs/github-actions-tests.yml; user enables via GitHub UI since PAT lacks workflow scope)
 docs/github-actions-tests.yml       # CI workflow config (copy to .github/workflows/ to enable)
 LICENSE                             # MIT

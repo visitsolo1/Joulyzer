@@ -154,23 +154,23 @@ def test_live_usage_harness_artifact_shape(tmp_path: Path):
         "ended_at",
         "duration_seconds",
         "summary",
-        "by_caller",
-        "by_kind",
         "records",
     ):
         assert key in d, f"missing top-level key: {key}"
 
-    # Per-record shape.
-    expected_record_keys = {"ts", "kind", "request", "response", "duration_ms", "caller"}
+    # Summary shape (by_kind counts per record kind).
+    assert "by_kind" in d["summary"]
+    assert d["summary"]["total_records"] == len(d["records"])
+
+    # Per-record shape (matches hasbunallah01/quant-copilot reference).
+    expected_record_keys = {"ts", "kind", "session_id", "request", "response"}
     for i, rec in enumerate(d["records"]):
         assert expected_record_keys.issubset(rec.keys()), f"record {i} missing keys"
-        assert rec["caller"] in {"cli", "function", "mcp", "bitget_live"}
+        assert rec["session_id"] == d["session_id"], f"record {i} session_id mismatch"
         assert rec["response"]["status"] in {"ok", "error"}
-        assert isinstance(rec["duration_ms"], (int, float))
 
-    # by_caller buckets.
-    for caller in ("cli", "function", "mcp"):
-        assert caller in d["by_caller"], f"missing caller bucket: {caller}"
+    # The demo run record should be present (matches reference's "real app" pattern).
+    assert any(r["kind"].startswith("demo:") for r in d["records"]), "missing demo run record"
 
     # Markdown sibling exists and has the standard header.
     md = repo_root / "verifiable_usage_records" / "live-usage-latest.md"
@@ -180,3 +180,10 @@ def test_live_usage_harness_artifact_shape(tmp_path: Path):
         assert "Timeline" in text
         assert "**Request**" in text
         assert "**Response**" in text
+
+    # Focused artifacts (separate files, mirroring reference layout).
+    sample_api_io = repo_root / "verifiable_usage_records" / "sample-api-io.md"
+    assert sample_api_io.exists(), "sample-api-io.md missing — run live_usage_harness.py"
+    live_bitget = repo_root / "verifiable_usage_records" / "live-bitget-server-time.txt"
+    assert live_bitget.exists(), "live-bitget-server-time.txt missing — run live_usage_harness.py"
+    assert "api.bitget.com" in live_bitget.read_text()
