@@ -53,14 +53,12 @@ echo
 echo "==> Step 5/7: live MCP client → server session"
 python scripts/mcp_client_demo.py
 
-# 6. Tool surface artifacts
+# 5b. Live usage harness (multi-caller, multi-journal, multi-format)
 echo
-echo "==> Step 6/7: tool schema + MCP manifest"
-python -m joulyzer.agent --schema  > "$ROOT/verifiable_usage_records/tool_schema.json"
-python -m joulyzer.agent --manifest > "$ROOT/verifiable_usage_records/mcp_manifest.json"
-echo "    wrote tool_schema.json + mcp_manifest.json"
+echo "==> Step 5b/7: live usage harness (CLI + function + MCP, 3 journals, 3 formats + 3 errors)"
+python scripts/live_usage_harness.py
 
-# 7. Summary
+# 6. Tool surface artifacts
 echo
 echo "==> Step 7/7: summary"
 echo "    ==> ALL ARTIFACTS REGENERATED"
@@ -71,3 +69,6 @@ ls -la "$ROOT/verifiable_usage_records/integration_run/"
 echo
 echo "    live_session/:"
 ls -la "$ROOT/verifiable_usage_records/live_session/" 2>/dev/null || true
+echo
+echo "    live_usage_inputs/:"
+ls -la "$ROOT/verifiable_usage_records/live_usage_inputs/" 2>/dev/null || true

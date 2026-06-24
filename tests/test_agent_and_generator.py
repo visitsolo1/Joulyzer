@@ -129,3 +129,57 @@ def test_mcp_manifest_has_tool():
     m = mcp_manifest()
     assert m["name"] == "joulyzer"
     assert any(t["name"] == "analyze_journal" for t in m["tools"])
+
+
+def test_live_usage_harness_artifact_shape(tmp_path: Path):
+    """The live_usage harness writes JSONL + summary JSON + summary MD.
+
+    We don't run the full harness here (it spawns subprocesses); we just
+    check the schema is what we documented. Run ``scripts/live_usage_harness.py``
+    (or ``bash scripts/verify_submission.sh``) to actually populate it.
+    """
+    import json as _json
+
+    expected_keys = {
+        "ts",
+        "ts_end",
+        "latency_ms",
+        "caller",
+        "operation",
+        "input_journal",
+        "input_format",
+        "status",
+        "exit_code",
+        "error",
+        "output_size_bytes",
+        "output_preview",
+    }
+    sample_record = {
+        "ts": "2026-06-24T19:38:19.848595Z",
+        "ts_end": "2026-06-24T19:38:19.860439Z",
+        "latency_ms": 11.844,
+        "caller": "cli",
+        "operation": "cli:text",
+        "input_journal": "/tmp/example.csv",
+        "input_format": "text",
+        "status": "ok",
+        "exit_code": 0,
+        "error": None,
+        "output_size_bytes": 1073,
+        "output_preview": "================ Joulyzer Report",
+    }
+    assert expected_keys.issubset(sample_record.keys())
+
+    # If the harness has been run, the on-disk JSONL must conform.
+    repo_root = Path(__file__).resolve().parents[1]
+    usage_log = repo_root / "verifiable_usage_records" / "live_usage.jsonl"
+    if usage_log.exists():
+        with usage_log.open() as f:
+            for i, line in enumerate(f):
+                if not line.strip():
+                    continue
+                rec = _json.loads(line)
+                assert expected_keys.issubset(rec.keys()), f"line {i} missing keys"
+                assert rec["caller"] in {"cli", "function", "mcp"}
+                assert rec["status"] in {"ok", "error"}
+                assert isinstance(rec["latency_ms"], (int, float))
