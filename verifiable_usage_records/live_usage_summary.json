@@ -1,0 +1,49 @@
+{
+  "total_calls": 30,
+  "ok_calls": 27,
+  "error_calls": 3,
+  "total_wall_clock_ms": 909.522,
+  "first_call_ts": "2026-06-24T19:38:46.650397Z",
+  "last_call_ts": "2026-06-24T19:38:47.565091Z",
+  "by_caller": {
+    "cli": {
+      "calls": 10,
+      "ok": 9,
+      "errors": 1,
+      "mean_latency_ms": 85.825,
+      "p50_latency_ms": 85.342,
+      "max_latency_ms": 102.53,
+      "min_latency_ms": 70.757
+    },
+    "function": {
+      "calls": 11,
+      "ok": 9,
+      "errors": 2,
+      "mean_latency_ms": 2.17,
+      "p50_latency_ms": 1.927,
+      "max_latency_ms": 4.77,
+      "min_latency_ms": 0.051
+    },
+    "mcp": {
+      "calls": 9,
+      "ok": 9,
+      "errors": 0,
+      "mean_latency_ms": 3.045,
+      "p50_latency_ms": 2.389,
+      "max_latency_ms": 4.849,
+      "min_latency_ms": 1.415
+    }
+  },
+  "input_journals": [
+    "/nonexistent/journal.csv",
+    "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/examples/sample_journal.csv",
+    "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/bogus_no_pnl_or_price.csv",
+    "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+    "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_small.csv"
+  ],
+  "formats_exercised": [
+    "dict",
+    "json",
+    "text"
+  ]
+}

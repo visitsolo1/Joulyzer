@@ -158,8 +158,9 @@ faster. Joulyzer is one piece of that.
 | **Verifiable usage record #1 — test logs**         | `verifiable_usage_records/pytest_run.log` (16/16 passed)                          |
 | **Verifiable usage record #2 — sample I/O**        | `verifiable_usage_records/cli_text_run.txt` + `integration_run/agent_tool_call_result.json` |
 | **Verifiable usage record #3 — simulated API log** | `verifiable_usage_records/integration_run/bitget_api_call_log.jsonl` (240 simulated Bitget calls with timestamps) |
-| **Verifiable usage record #4 — LIVE API call log** | `verifiable_usage_records/live_mcp_session.log.jsonl` (real JSON-RPC traffic between a client subprocess and the joulyzer MCP server) |
-| **Verifiable usage record #5 — integration example** | `examples/agent_integration.py` + `scripts/mcp_client_demo.py` (another developer can run them via `bash scripts/verify_submission.sh`) |
+| **Verifiable usage record #4 — live multi-caller usage log** | `verifiable_usage_records/live_usage.jsonl` (+ `live_usage_summary.md` / `.json`) — 30 real calls into joulyzer as third-party infra from three callers (CLI subprocess, in-process function, JSON-RPC MCP subprocess), three real input journals, all three output formats, plus three deliberate error paths. Per-call: UTC timestamp, wall-clock latency, caller, operation, input, status, output bytes. |
+| **Verifiable usage record #5 — LIVE MCP wire log** | `verifiable_usage_records/live_mcp_session.log.jsonl` — narrower trace focused on MCP wire format (`tools/list` discovery + `tools/call` envelopes) from a client subprocess to the joulyzer MCP server. |
+| **Verifiable usage record #6 — integration example** | `examples/agent_integration.py` + `scripts/mcp_client_demo.py` + `scripts/live_usage_harness.py` (another developer can run them via `bash scripts/verify_submission.sh`) |
 | **Demo video** (optional)                           | _Not submitted — repo is self-runnable, judges can `python -m pytest tests/ -v` immediately_ |
 | **Deployment link** (optional)                      | _Not submitted — joulyzer is a library, not a hosted service_                     |
 
