@@ -28,6 +28,7 @@ fi
 # 2. Tests
 echo "==> Step 2/7: pytest"
 python -m pytest tests/ -v | tee "$ROOT/verifiable_usage_records/pytest_run.log"
+python -m pytest tests/ -v > "$ROOT/verifiable_usage_records/pytest-2026-06-24.txt" 2>&1 || true
 
 # 3. CLI text + JSON
 echo

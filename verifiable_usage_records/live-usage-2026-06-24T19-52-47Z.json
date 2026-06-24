@@ -1,8 +1,8 @@
 {
-  "session_id": "55053e8f5a19",
-  "started_at": "2026-06-24T19:54:33.043491+00:00",
-  "ended_at": "2026-06-24T19:54:34.970126+00:00",
-  "duration_seconds": 1.927,
+  "session_id": "550538418729",
+  "started_at": "2026-06-24T19:52:47.279918+00:00",
+  "ended_at": "2026-06-24T19:52:49.052746+00:00",
+  "duration_seconds": 1.773,
   "summary": {
     "total_records": 34,
     "by_kind": {
@@ -23,9 +23,9 @@
   },
   "records": [
     {
-      "ts": "2026-06-24T19:54:33.050029+00:00",
+      "ts": "2026-06-24T19:52:47.285320+00:00",
       "kind": "CLI: analyze_journal text",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "subprocess.run",
         "cmd": [
@@ -44,12 +44,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 7   Wins: 5   Losses: 2   Open: 1\nWin rate:        71.4%\nNet PnL:         279.00\nGross profit:    419.00   Gross loss: 140.00\nProfit factor:   2.99\nAvg win:         83.80   Avg loss: -70.00\nExpectancy:      39.86 per trade\nMax drawdown:    100.00\nAvg hold (min):  77.4\nBest trade:      275.00   Worst: -100.00\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=185.00\n  ETHUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=70.00\n  SOLUSDT    trades=2    wins=2    losses=0    WR=100.0%  net=24.00\n\n--- By hour (entry) ---\n  08:00  trades=1    net=6.00\n  09:00  trades=1    net=275.00\n  10:00  trades=1    net=-100.00\n  11:00  trades=1    net=-40.00\n  13:00  trades=1    net=110.00\n  14:00  trades=1    net=10.00\n  15:00  trades=1    net=18.00\n\n--- By tag ---\n  breakout       trades=2    net=385.00\n  scalp          trades=3    net=34.00\n  fomo           trades=1    net=-40.00\n  revenge        trades=1    net=-100.00\n=================================================\n"
       },
-      "duration_ms": 195.668
+      "duration_ms": 153.159
     },
     {
-      "ts": "2026-06-24T19:54:33.246874+00:00",
+      "ts": "2026-06-24T19:52:47.439516+00:00",
       "kind": "function: analyze_journal text",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "module": "joulyzer",
         "fn": "analyze_journal",
@@ -63,12 +63,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 7   Wins: 5   Losses: 2   Open: 1\nWin rate:        71.4%\nNet PnL:         279.00\nGross profit:    419.00   Gross loss: 140.00\nProfit factor:   2.99\nAvg win:         83.80   Avg loss: -70.00\nExpectancy:      39.86 per trade\nMax drawdown:    100.00\nAvg hold (min):  77.4\nBest trade:      275.00   Worst: -100.00\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=185.00\n  ETHUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=70.00\n  SOLUSDT    trades=2    wins=2    losses=0    WR=100.0%  net=24.00\n\n--- By hour (entry) ---\n  08:00  trades=1    net=6.00\n  09:00  trades=1    net=275.00\n  10:00  trades=1    net=-100.00\n  11:00  trades=1    net=-40.00\n  13:00  trades=1    net=110.00\n  14:00  trades=1    net=10.00\n  15:00  trades=1    net=18.00\n\n--- By tag ---\n  breakout       trades=2    net=385.00\n  scalp          trades=3    net=34.00\n  fomo           trades=1    net=-40.00\n  revenge        trades=1    net=-100.00\n================================================="
       },
-      "duration_ms": 1.83
+      "duration_ms": 2.053
     },
     {
-      "ts": "2026-06-24T19:54:33.248782+00:00",
+      "ts": "2026-06-24T19:52:47.441665+00:00",
       "kind": "MCP: tools/call analyze_journal text",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "stdio JSON-RPC",
         "server": "python -m joulyzer.agent --mcp",
@@ -92,12 +92,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 7   Wins: 5   Losses: 2   Open: 1\nWin rate:        71.4%\nNet PnL:         279.00\nGross profit:    419.00   Gross loss: 140.00\nProfit factor:   2.99\nAvg win:         83.80   Avg loss: -70.00\nExpectancy:      39.86 per trade\nMax drawdown:    100.00\nAvg hold (min):  77.4\nBest trade:      275.00   Worst: -100.00\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=185.00\n  ETHUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=70.00\n  SOLUSDT    trades=2    wins=2    losses=0    WR=100.0%  net=24.00\n\n--- By hour (entry) ---\n  08:00  trades=1    net=6.00\n  09:00  trades=1    net=275.00\n  10:00  trades=1    net=-100.00\n  11:00  trades=1    net=-40.00\n  13:00  trades=1    net=110.00\n  14:00  trades=1    net=10.00\n  15:00  trades=1    net=18.00\n\n--- By tag ---\n  breakout       trades=2    net=385.00\n  scalp          trades=3    net=34.00\n  fomo           trades=1    net=-40.00\n  revenge        trades=1    net=-100.00\n================================================="
       },
-      "duration_ms": 4.985
+      "duration_ms": 5.132
     },
     {
-      "ts": "2026-06-24T19:54:33.253849+00:00",
+      "ts": "2026-06-24T19:52:47.446876+00:00",
       "kind": "CLI: analyze_journal json",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "subprocess.run",
         "cmd": [
@@ -207,12 +207,12 @@
           }
         }
       },
-      "duration_ms": 88.602
+      "duration_ms": 83.383
     },
     {
-      "ts": "2026-06-24T19:54:33.342583+00:00",
+      "ts": "2026-06-24T19:52:47.530417+00:00",
       "kind": "function: analyze_journal json",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "module": "joulyzer",
         "fn": "analyze_journal",
@@ -316,12 +316,12 @@
           }
         }
       },
-      "duration_ms": 1.252
+      "duration_ms": 1.179
     },
     {
-      "ts": "2026-06-24T19:54:33.343939+00:00",
+      "ts": "2026-06-24T19:52:47.531700+00:00",
       "kind": "MCP: tools/call analyze_journal json",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "stdio JSON-RPC",
         "server": "python -m joulyzer.agent --mcp",
@@ -435,12 +435,12 @@
           }
         }
       },
-      "duration_ms": 1.695
+      "duration_ms": 2.157
     },
     {
-      "ts": "2026-06-24T19:54:33.345734+00:00",
+      "ts": "2026-06-24T19:52:47.533956+00:00",
       "kind": "CLI: analyze_journal dict",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "subprocess.run",
         "cmd": [
@@ -459,12 +459,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 7   Wins: 5   Losses: 2   Open: 1\nWin rate:        71.4%\nNet PnL:         279.00\nGross profit:    419.00   Gross loss: 140.00\nProfit factor:   2.99\nAvg win:         83.80   Avg loss: -70.00\nExpectancy:      39.86 per trade\nMax drawdown:    100.00\nAvg hold (min):  77.4\nBest trade:      275.00   Worst: -100.00\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=185.00\n  ETHUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=70.00\n  SOLUSDT    trades=2    wins=2    losses=0    WR=100.0%  net=24.00\n\n--- By hour (entry) ---\n  08:00  trades=1    net=6.00\n  09:00  trades=1    net=275.00\n  10:00  trades=1    net=-100.00\n  11:00  trades=1    net=-40.00\n  13:00  trades=1    net=110.00\n  14:00  trades=1    net=10.00\n  15:00  trades=1    net=18.00\n\n--- By tag ---\n  breakout       trades=2    net=385.00\n  scalp          trades=3    net=34.00\n  fomo           trades=1    net=-40.00\n  revenge        trades=1    net=-100.00\n=================================================\n"
       },
-      "duration_ms": 80.603
+      "duration_ms": 72.309
     },
     {
-      "ts": "2026-06-24T19:54:33.426479+00:00",
+      "ts": "2026-06-24T19:52:47.606411+00:00",
       "kind": "function: analyze_journal dict",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "module": "joulyzer",
         "fn": "analyze_journal",
@@ -568,12 +568,12 @@
           }
         }
       },
-      "duration_ms": 1.11
+      "duration_ms": 1.167
     },
     {
-      "ts": "2026-06-24T19:54:33.427667+00:00",
+      "ts": "2026-06-24T19:52:47.607639+00:00",
       "kind": "MCP: tools/call analyze_journal dict",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "stdio JSON-RPC",
         "server": "python -m joulyzer.agent --mcp",
@@ -687,12 +687,12 @@
           }
         }
       },
-      "duration_ms": 1.496
+      "duration_ms": 1.606
     },
     {
-      "ts": "2026-06-24T19:54:33.429264+00:00",
+      "ts": "2026-06-24T19:52:47.609348+00:00",
       "kind": "CLI: analyze_journal text",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "subprocess.run",
         "cmd": [
@@ -711,12 +711,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 25   Wins: 20   Losses: 5   Open: 0\nWin rate:        80.0%\nNet PnL:         965.61\nGross profit:    1,296.54   Gross loss: 330.93\nProfit factor:   3.92\nAvg win:         64.83   Avg loss: -66.19\nExpectancy:      38.62 per trade\nMax drawdown:    246.63\nAvg hold (min):  41.7\nBest trade:      567.22   Worst: -246.63\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=820.94\n  ETHUSDT    trades=14   wins=12   losses=2    WR= 85.7%  net=136.97\n  SOLUSDT    trades=4    wins=4    losses=0    WR=100.0%  net=7.78\n  DOGEUSDT   trades=2    wins=1    losses=1    WR= 50.0%  net=-0.00\n  XRPUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=-0.08\n\n--- By hour (entry) ---\n  00:00  trades=1    net=-62.70\n  01:00  trades=1    net=7.53\n  03:00  trades=1    net=2.75\n  04:00  trades=1    net=-21.50\n  05:00  trades=1    net=4.20\n  06:00  trades=1    net=16.53\n  08:00  trades=1    net=5.72\n  09:00  trades=1    net=-0.10\n  10:00  trades=1    net=0.36\n  11:00  trades=1    net=1.89\n  12:00  trades=1    net=500.34\n  13:00  trades=2    net=73.73\n  14:00  trades=3    net=-243.83\n  15:00  trades=1    net=28.47\n  16:00  trades=1    net=567.22\n  17:00  trades=1    net=16.03\n  18:00  trades=1    net=2.41\n  19:00  trades=1    net=0.00\n  20:00  trades=2    net=9.88\n  22:00  trades=1    net=24.23\n  23:00  trades=1    net=32.44\n\n--- By tag ---\n  win            trades=20   net=1,296.54\n  intraday       trades=15   net=831.75\n  scalp          trades=10   net=133.85\n  loss           trades=5    net=-330.93\n=================================================\n"
       },
-      "duration_ms": 87.213
+      "duration_ms": 76.757
     },
     {
-      "ts": "2026-06-24T19:54:33.516598+00:00",
+      "ts": "2026-06-24T19:52:47.686237+00:00",
       "kind": "function: analyze_journal text",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "module": "joulyzer",
         "fn": "analyze_journal",
@@ -730,12 +730,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 25   Wins: 20   Losses: 5   Open: 0\nWin rate:        80.0%\nNet PnL:         965.61\nGross profit:    1,296.54   Gross loss: 330.93\nProfit factor:   3.92\nAvg win:         64.83   Avg loss: -66.19\nExpectancy:      38.62 per trade\nMax drawdown:    246.63\nAvg hold (min):  41.7\nBest trade:      567.22   Worst: -246.63\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=820.94\n  ETHUSDT    trades=14   wins=12   losses=2    WR= 85.7%  net=136.97\n  SOLUSDT    trades=4    wins=4    losses=0    WR=100.0%  net=7.78\n  DOGEUSDT   trades=2    wins=1    losses=1    WR= 50.0%  net=-0.00\n  XRPUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=-0.08\n\n--- By hour (entry) ---\n  00:00  trades=1    net=-62.70\n  01:00  trades=1    net=7.53\n  03:00  trades=1    net=2.75\n  04:00  trades=1    net=-21.50\n  05:00  trades=1    net=4.20\n  06:00  trades=1    net=16.53\n  08:00  trades=1    net=5.72\n  09:00  trades=1    net=-0.10\n  10:00  trades=1    net=0.36\n  11:00  trades=1    net=1.89\n  12:00  trades=1    net=500.34\n  13:00  trades=2    net=73.73\n  14:00  trades=3    net=-243.83\n  15:00  trades=1    net=28.47\n  16:00  trades=1    net=567.22\n  17:00  trades=1    net=16.03\n  18:00  trades=1    net=2.41\n  19:00  trades=1    net=0.00\n  20:00  trades=2    net=9.88\n  22:00  trades=1    net=24.23\n  23:00  trades=1    net=32.44\n\n--- By tag ---\n  win            trades=20   net=1,296.54\n  intraday       trades=15   net=831.75\n  scalp          trades=10   net=133.85\n  loss           trades=5    net=-330.93\n================================================="
       },
-      "duration_ms": 1.891
+      "duration_ms": 1.992
     },
     {
-      "ts": "2026-06-24T19:54:33.518570+00:00",
+      "ts": "2026-06-24T19:52:47.688668+00:00",
       "kind": "MCP: tools/call analyze_journal text",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "stdio JSON-RPC",
         "server": "python -m joulyzer.agent --mcp",
@@ -759,12 +759,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 25   Wins: 20   Losses: 5   Open: 0\nWin rate:        80.0%\nNet PnL:         965.61\nGross profit:    1,296.54   Gross loss: 330.93\nProfit factor:   3.92\nAvg win:         64.83   Avg loss: -66.19\nExpectancy:      38.62 per trade\nMax drawdown:    246.63\nAvg hold (min):  41.7\nBest trade:      567.22   Worst: -246.63\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=820.94\n  ETHUSDT    trades=14   wins=12   losses=2    WR= 85.7%  net=136.97\n  SOLUSDT    trades=4    wins=4    losses=0    WR=100.0%  net=7.78\n  DOGEUSDT   trades=2    wins=1    losses=1    WR= 50.0%  net=-0.00\n  XRPUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=-0.08\n\n--- By hour (entry) ---\n  00:00  trades=1    net=-62.70\n  01:00  trades=1    net=7.53\n  03:00  trades=1    net=2.75\n  04:00  trades=1    net=-21.50\n  05:00  trades=1    net=4.20\n  06:00  trades=1    net=16.53\n  08:00  trades=1    net=5.72\n  09:00  trades=1    net=-0.10\n  10:00  trades=1    net=0.36\n  11:00  trades=1    net=1.89\n  12:00  trades=1    net=500.34\n  13:00  trades=2    net=73.73\n  14:00  trades=3    net=-243.83\n  15:00  trades=1    net=28.47\n  16:00  trades=1    net=567.22\n  17:00  trades=1    net=16.03\n  18:00  trades=1    net=2.41\n  19:00  trades=1    net=0.00\n  20:00  trades=2    net=9.88\n  22:00  trades=1    net=24.23\n  23:00  trades=1    net=32.44\n\n--- By tag ---\n  win            trades=20   net=1,296.54\n  intraday       trades=15   net=831.75\n  scalp          trades=10   net=133.85\n  loss           trades=5    net=-330.93\n================================================="
       },
-      "duration_ms": 2.232
+      "duration_ms": 2.002
     },
     {
-      "ts": "2026-06-24T19:54:33.520883+00:00",
+      "ts": "2026-06-24T19:52:47.690757+00:00",
       "kind": "CLI: analyze_journal json",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "subprocess.run",
         "cmd": [
@@ -946,12 +946,12 @@
           }
         }
       },
-      "duration_ms": 90.16
+      "duration_ms": 75.8
     },
     {
-      "ts": "2026-06-24T19:54:33.611184+00:00",
+      "ts": "2026-06-24T19:52:47.766696+00:00",
       "kind": "function: analyze_journal json",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "module": "joulyzer",
         "fn": "analyze_journal",
@@ -1127,12 +1127,12 @@
           }
         }
       },
-      "duration_ms": 1.969
+      "duration_ms": 2.103
     },
     {
-      "ts": "2026-06-24T19:54:33.613276+00:00",
+      "ts": "2026-06-24T19:52:47.768912+00:00",
       "kind": "MCP: tools/call analyze_journal json",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "stdio JSON-RPC",
         "server": "python -m joulyzer.agent --mcp",
@@ -1318,12 +1318,12 @@
           }
         }
       },
-      "duration_ms": 2.284
+      "duration_ms": 2.509
     },
     {
-      "ts": "2026-06-24T19:54:33.615694+00:00",
+      "ts": "2026-06-24T19:52:47.771532+00:00",
       "kind": "CLI: analyze_journal dict",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "subprocess.run",
         "cmd": [
@@ -1342,12 +1342,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 25   Wins: 20   Losses: 5   Open: 0\nWin rate:        80.0%\nNet PnL:         965.61\nGross profit:    1,296.54   Gross loss: 330.93\nProfit factor:   3.92\nAvg win:         64.83   Avg loss: -66.19\nExpectancy:      38.62 per trade\nMax drawdown:    246.63\nAvg hold (min):  41.7\nBest trade:      567.22   Worst: -246.63\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=820.94\n  ETHUSDT    trades=14   wins=12   losses=2    WR= 85.7%  net=136.97\n  SOLUSDT    trades=4    wins=4    losses=0    WR=100.0%  net=7.78\n  DOGEUSDT   trades=2    wins=1    losses=1    WR= 50.0%  net=-0.00\n  XRPUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=-0.08\n\n--- By hour (entry) ---\n  00:00  trades=1    net=-62.70\n  01:00  trades=1    net=7.53\n  03:00  trades=1    net=2.75\n  04:00  trades=1    net=-21.50\n  05:00  trades=1    net=4.20\n  06:00  trades=1    net=16.53\n  08:00  trades=1    net=5.72\n  09:00  trades=1    net=-0.10\n  10:00  trades=1    net=0.36\n  11:00  trades=1    net=1.89\n  12:00  trades=1    net=500.34\n  13:00  trades=2    net=73.73\n  14:00  trades=3    net=-243.83\n  15:00  trades=1    net=28.47\n  16:00  trades=1    net=567.22\n  17:00  trades=1    net=16.03\n  18:00  trades=1    net=2.41\n  19:00  trades=1    net=0.00\n  20:00  trades=2    net=9.88\n  22:00  trades=1    net=24.23\n  23:00  trades=1    net=32.44\n\n--- By tag ---\n  win            trades=20   net=1,296.54\n  intraday       trades=15   net=831.75\n  scalp          trades=10   net=133.85\n  loss           trades=5    net=-330.93\n=================================================\n"
       },
-      "duration_ms": 83.66
+      "duration_ms": 75.783
     },
     {
-      "ts": "2026-06-24T19:54:33.699504+00:00",
+      "ts": "2026-06-24T19:52:47.847453+00:00",
       "kind": "function: analyze_journal dict",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "module": "joulyzer",
         "fn": "analyze_journal",
@@ -1523,12 +1523,12 @@
           }
         }
       },
-      "duration_ms": 1.756
+      "duration_ms": 1.821
     },
     {
-      "ts": "2026-06-24T19:54:33.701323+00:00",
+      "ts": "2026-06-24T19:52:47.849338+00:00",
       "kind": "MCP: tools/call analyze_journal dict",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "stdio JSON-RPC",
         "server": "python -m joulyzer.agent --mcp",
@@ -1714,12 +1714,12 @@
           }
         }
       },
-      "duration_ms": 2.248
+      "duration_ms": 2.366
     },
     {
-      "ts": "2026-06-24T19:54:33.703717+00:00",
+      "ts": "2026-06-24T19:52:47.852117+00:00",
       "kind": "CLI: analyze_journal text",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "subprocess.run",
         "cmd": [
@@ -1738,12 +1738,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 80   Wins: 34   Losses: 46   Open: 0\nWin rate:        42.5%\nNet PnL:         -6,072.90\nGross profit:    9,171.01   Gross loss: 15,243.91\nProfit factor:   0.60\nAvg win:         269.74   Avg loss: -331.39\nExpectancy:      -75.91 per trade\nMax drawdown:    13,594.44\nAvg hold (min):  46.9\nBest trade:      3,573.56   Worst: -2,457.95\n\n--- By symbol ---\n  SOLUSDT    trades=20   wins=11   losses=9    WR= 55.0%  net=4.24\n  DOGEUSDT   trades=14   wins=3    losses=11   WR= 21.4%  net=-0.03\n  XRPUSDT    trades=15   wins=5    losses=10   WR= 33.3%  net=-0.22\n  ETHUSDT    trades=12   wins=4    losses=8    WR= 33.3%  net=-187.08\n  BTCUSDT    trades=19   wins=11   losses=8    WR= 57.9%  net=-5,889.82\n\n--- By hour (entry) ---\n  00:00  trades=5    net=510.94\n  01:00  trades=2    net=-24.69\n  02:00  trades=3    net=-4,572.77\n  03:00  trades=5    net=-4,650.40\n  04:00  trades=5    net=-937.57\n  05:00  trades=5    net=-33.79\n  06:00  trades=5    net=1,452.77\n  07:00  trades=1    net=3,573.56\n  08:00  trades=2    net=-13.42\n  09:00  trades=4    net=3.79\n  10:00  trades=4    net=5.49\n  11:00  trades=1    net=16.31\n  12:00  trades=4    net=-3,758.26\n  13:00  trades=2    net=-1.33\n  14:00  trades=3    net=-1,116.41\n  15:00  trades=4    net=29.37\n  16:00  trades=1    net=-1.22\n  17:00  trades=4    net=149.06\n  18:00  trades=5    net=1,982.84\n  19:00  trades=4    net=-16.42\n  20:00  trades=3    net=791.67\n  21:00  trades=2    net=537.65\n  22:00  trades=3    net=-0.02\n  23:00  trades=3    net=-0.05\n\n--- By tag ---\n  win            trades=34   net=9,171.01\n  scalp          trades=27   net=-2,612.68\n  intraday       trades=53   net=-3,460.23\n  loss           trades=46   net=-15,243.91\n=================================================\n"
       },
-      "duration_ms": 75.745
+      "duration_ms": 83.918
     },
     {
-      "ts": "2026-06-24T19:54:33.779581+00:00",
+      "ts": "2026-06-24T19:52:47.936146+00:00",
       "kind": "function: analyze_journal text",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "module": "joulyzer",
         "fn": "analyze_journal",
@@ -1757,12 +1757,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 80   Wins: 34   Losses: 46   Open: 0\nWin rate:        42.5%\nNet PnL:         -6,072.90\nGross profit:    9,171.01   Gross loss: 15,243.91\nProfit factor:   0.60\nAvg win:         269.74   Avg loss: -331.39\nExpectancy:      -75.91 per trade\nMax drawdown:    13,594.44\nAvg hold (min):  46.9\nBest trade:      3,573.56   Worst: -2,457.95\n\n--- By symbol ---\n  SOLUSDT    trades=20   wins=11   losses=9    WR= 55.0%  net=4.24\n  DOGEUSDT   trades=14   wins=3    losses=11   WR= 21.4%  net=-0.03\n  XRPUSDT    trades=15   wins=5    losses=10   WR= 33.3%  net=-0.22\n  ETHUSDT    trades=12   wins=4    losses=8    WR= 33.3%  net=-187.08\n  BTCUSDT    trades=19   wins=11   losses=8    WR= 57.9%  net=-5,889.82\n\n--- By hour (entry) ---\n  00:00  trades=5    net=510.94\n  01:00  trades=2    net=-24.69\n  02:00  trades=3    net=-4,572.77\n  03:00  trades=5    net=-4,650.40\n  04:00  trades=5    net=-937.57\n  05:00  trades=5    net=-33.79\n  06:00  trades=5    net=1,452.77\n  07:00  trades=1    net=3,573.56\n  08:00  trades=2    net=-13.42\n  09:00  trades=4    net=3.79\n  10:00  trades=4    net=5.49\n  11:00  trades=1    net=16.31\n  12:00  trades=4    net=-3,758.26\n  13:00  trades=2    net=-1.33\n  14:00  trades=3    net=-1,116.41\n  15:00  trades=4    net=29.37\n  16:00  trades=1    net=-1.22\n  17:00  trades=4    net=149.06\n  18:00  trades=5    net=1,982.84\n  19:00  trades=4    net=-16.42\n  20:00  trades=3    net=791.67\n  21:00  trades=2    net=537.65\n  22:00  trades=3    net=-0.02\n  23:00  trades=3    net=-0.05\n\n--- By tag ---\n  win            trades=34   net=9,171.01\n  scalp          trades=27   net=-2,612.68\n  intraday       trades=53   net=-3,460.23\n  loss           trades=46   net=-15,243.91\n================================================="
       },
-      "duration_ms": 4.01
+      "duration_ms": 4.45
     },
     {
-      "ts": "2026-06-24T19:54:33.783680+00:00",
+      "ts": "2026-06-24T19:52:47.940676+00:00",
       "kind": "MCP: tools/call analyze_journal text",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "stdio JSON-RPC",
         "server": "python -m joulyzer.agent --mcp",
@@ -1786,12 +1786,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 80   Wins: 34   Losses: 46   Open: 0\nWin rate:        42.5%\nNet PnL:         -6,072.90\nGross profit:    9,171.01   Gross loss: 15,243.91\nProfit factor:   0.60\nAvg win:         269.74   Avg loss: -331.39\nExpectancy:      -75.91 per trade\nMax drawdown:    13,594.44\nAvg hold (min):  46.9\nBest trade:      3,573.56   Worst: -2,457.95\n\n--- By symbol ---\n  SOLUSDT    trades=20   wins=11   losses=9    WR= 55.0%  net=4.24\n  DOGEUSDT   trades=14   wins=3    losses=11   WR= 21.4%  net=-0.03\n  XRPUSDT    trades=15   wins=5    losses=10   WR= 33.3%  net=-0.22\n  ETHUSDT    trades=12   wins=4    losses=8    WR= 33.3%  net=-187.08\n  BTCUSDT    trades=19   wins=11   losses=8    WR= 57.9%  net=-5,889.82\n\n--- By hour (entry) ---\n  00:00  trades=5    net=510.94\n  01:00  trades=2    net=-24.69\n  02:00  trades=3    net=-4,572.77\n  03:00  trades=5    net=-4,650.40\n  04:00  trades=5    net=-937.57\n  05:00  trades=5    net=-33.79\n  06:00  trades=5    net=1,452.77\n  07:00  trades=1    net=3,573.56\n  08:00  trades=2    net=-13.42\n  09:00  trades=4    net=3.79\n  10:00  trades=4    net=5.49\n  11:00  trades=1    net=16.31\n  12:00  trades=4    net=-3,758.26\n  13:00  trades=2    net=-1.33\n  14:00  trades=3    net=-1,116.41\n  15:00  trades=4    net=29.37\n  16:00  trades=1    net=-1.22\n  17:00  trades=4    net=149.06\n  18:00  trades=5    net=1,982.84\n  19:00  trades=4    net=-16.42\n  20:00  trades=3    net=791.67\n  21:00  trades=2    net=537.65\n  22:00  trades=3    net=-0.02\n  23:00  trades=3    net=-0.05\n\n--- By tag ---\n  win            trades=34   net=9,171.01\n  scalp          trades=27   net=-2,612.68\n  intraday       trades=53   net=-3,460.23\n  loss           trades=46   net=-15,243.91\n================================================="
       },
-      "duration_ms": 4.151
+      "duration_ms": 3.854
     },
     {
-      "ts": "2026-06-24T19:54:33.787927+00:00",
+      "ts": "2026-06-24T19:52:47.944620+00:00",
       "kind": "CLI: analyze_journal json",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "subprocess.run",
         "cmd": [
@@ -1985,12 +1985,12 @@
           }
         }
       },
-      "duration_ms": 74.305
+      "duration_ms": 77.176
     },
     {
-      "ts": "2026-06-24T19:54:33.862412+00:00",
+      "ts": "2026-06-24T19:52:48.021971+00:00",
       "kind": "function: analyze_journal json",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "module": "joulyzer",
         "fn": "analyze_journal",
@@ -2178,12 +2178,12 @@
           }
         }
       },
-      "duration_ms": 4.423
+      "duration_ms": 3.981
     },
     {
-      "ts": "2026-06-24T19:54:33.866959+00:00",
+      "ts": "2026-06-24T19:52:48.026074+00:00",
       "kind": "MCP: tools/call analyze_journal json",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "stdio JSON-RPC",
         "server": "python -m joulyzer.agent --mcp",
@@ -2381,12 +2381,12 @@
           }
         }
       },
-      "duration_ms": 4.214
+      "duration_ms": 4.272
     },
     {
-      "ts": "2026-06-24T19:54:33.871291+00:00",
+      "ts": "2026-06-24T19:52:48.030500+00:00",
       "kind": "CLI: analyze_journal dict",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "subprocess.run",
         "cmd": [
@@ -2405,12 +2405,12 @@
         "body_kind": "text",
         "body": "================ Joulyzer Report ================\nTrades (closed): 80   Wins: 34   Losses: 46   Open: 0\nWin rate:        42.5%\nNet PnL:         -6,072.90\nGross profit:    9,171.01   Gross loss: 15,243.91\nProfit factor:   0.60\nAvg win:         269.74   Avg loss: -331.39\nExpectancy:      -75.91 per trade\nMax drawdown:    13,594.44\nAvg hold (min):  46.9\nBest trade:      3,573.56   Worst: -2,457.95\n\n--- By symbol ---\n  SOLUSDT    trades=20   wins=11   losses=9    WR= 55.0%  net=4.24\n  DOGEUSDT   trades=14   wins=3    losses=11   WR= 21.4%  net=-0.03\n  XRPUSDT    trades=15   wins=5    losses=10   WR= 33.3%  net=-0.22\n  ETHUSDT    trades=12   wins=4    losses=8    WR= 33.3%  net=-187.08\n  BTCUSDT    trades=19   wins=11   losses=8    WR= 57.9%  net=-5,889.82\n\n--- By hour (entry) ---\n  00:00  trades=5    net=510.94\n  01:00  trades=2    net=-24.69\n  02:00  trades=3    net=-4,572.77\n  03:00  trades=5    net=-4,650.40\n  04:00  trades=5    net=-937.57\n  05:00  trades=5    net=-33.79\n  06:00  trades=5    net=1,452.77\n  07:00  trades=1    net=3,573.56\n  08:00  trades=2    net=-13.42\n  09:00  trades=4    net=3.79\n  10:00  trades=4    net=5.49\n  11:00  trades=1    net=16.31\n  12:00  trades=4    net=-3,758.26\n  13:00  trades=2    net=-1.33\n  14:00  trades=3    net=-1,116.41\n  15:00  trades=4    net=29.37\n  16:00  trades=1    net=-1.22\n  17:00  trades=4    net=149.06\n  18:00  trades=5    net=1,982.84\n  19:00  trades=4    net=-16.42\n  20:00  trades=3    net=791.67\n  21:00  trades=2    net=537.65\n  22:00  trades=3    net=-0.02\n  23:00  trades=3    net=-0.05\n\n--- By tag ---\n  win            trades=34   net=9,171.01\n  scalp          trades=27   net=-2,612.68\n  intraday       trades=53   net=-3,460.23\n  loss           trades=46   net=-15,243.91\n=================================================\n"
       },
-      "duration_ms": 78.407
+      "duration_ms": 75.341
     },
     {
-      "ts": "2026-06-24T19:54:33.949812+00:00",
+      "ts": "2026-06-24T19:52:48.105961+00:00",
       "kind": "function: analyze_journal dict",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "module": "joulyzer",
         "fn": "analyze_journal",
@@ -2598,12 +2598,12 @@
           }
         }
       },
-      "duration_ms": 3.625
+      "duration_ms": 4.226
     },
     {
-      "ts": "2026-06-24T19:54:33.953499+00:00",
+      "ts": "2026-06-24T19:52:48.110263+00:00",
       "kind": "MCP: tools/call analyze_journal dict",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "stdio JSON-RPC",
         "server": "python -m joulyzer.agent --mcp",
@@ -2801,12 +2801,12 @@
           }
         }
       },
-      "duration_ms": 4.421
+      "duration_ms": 4.562
     },
     {
-      "ts": "2026-06-24T19:54:33.958033+00:00",
+      "ts": "2026-06-24T19:52:48.114936+00:00",
       "kind": "function: analyze_journal text",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "module": "joulyzer",
         "fn": "analyze_journal",
@@ -2819,12 +2819,12 @@
         "status": "error",
         "error": "JournalLoadError: Could not identify a PnL or entry_price column. Headers found: ['foo', 'bar']"
       },
-      "duration_ms": 1.396
+      "duration_ms": 0.72
     },
     {
-      "ts": "2026-06-24T19:54:33.959511+00:00",
+      "ts": "2026-06-24T19:52:48.115722+00:00",
       "kind": "CLI: analyze_journal text",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "subprocess.run",
         "cmd": [
@@ -2842,12 +2842,12 @@
         "returncode": 2,
         "stderr": "error: File not found: /nonexistent/journal.csv"
       },
-      "duration_ms": 75.528
+      "duration_ms": 72.381
     },
     {
-      "ts": "2026-06-24T19:54:34.035137+00:00",
+      "ts": "2026-06-24T19:52:48.188224+00:00",
       "kind": "function: analyze_journal json",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "module": "joulyzer",
         "fn": "analyze_journal",
@@ -2860,12 +2860,12 @@
         "status": "error",
         "error": "JournalLoadError: File not found: /nonexistent/journal.csv"
       },
-      "duration_ms": 0.039
+      "duration_ms": 0.056
     },
     {
-      "ts": "2026-06-24T19:54:34.035217+00:00",
+      "ts": "2026-06-24T19:52:48.188350+00:00",
       "kind": "demo: examples/agent_integration.py",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "subprocess.run",
         "cmd": [
@@ -2892,12 +2892,12 @@
           "result_preview_win_rate": 0.575
         }
       },
-      "duration_ms": 109.423
+      "duration_ms": 117.977
     },
     {
-      "ts": "2026-06-24T19:54:34.146496+00:00",
+      "ts": "2026-06-24T19:52:48.308177+00:00",
       "kind": "Bitget live call: GET /api/v2/public/time",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "GET",
         "url": "https://api.bitget.com/api/v2/public/time",
@@ -2906,19 +2906,19 @@
       "response": {
         "status": "ok",
         "http_status": 200,
-        "latency_ms": 243.86,
+        "latency_ms": 251.8,
         "data_sample": {
-          "serverTime": "1782330874306"
+          "serverTime": "1782330768479"
         },
         "data_len": 4,
         "content_type": "application/json"
       },
-      "duration_ms": 243.858
+      "duration_ms": 251.798
     },
     {
-      "ts": "2026-06-24T19:54:34.390769+00:00",
+      "ts": "2026-06-24T19:52:48.560254+00:00",
       "kind": "Bitget live call: GET /api/v2/spot/market/tickers?symbol=BTCUSDT",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "GET",
         "url": "https://api.bitget.com/api/v2/spot/market/tickers?symbol=BTCUSDT",
@@ -2927,36 +2927,36 @@
       "response": {
         "status": "ok",
         "http_status": 200,
-        "latency_ms": 271.03,
+        "latency_ms": 236.27,
         "data_sample": [
           {
-            "open": "62407.94",
+            "open": "62343.6",
             "symbol": "BTCUSDT",
             "high24h": "63407.88",
             "low24h": "59105.71",
-            "lastPr": "59825.06",
-            "quoteVolume": "490728155.060333",
-            "baseVolume": "7999.050006",
-            "usdtVolume": "490728155.06033267",
-            "ts": "1782330873459",
-            "bidPr": "59825.57",
-            "askPr": "59825.58",
-            "bidSz": "2.08388",
-            "askSz": "0.012",
+            "lastPr": "59908.17",
+            "quoteVolume": "490292796.931279",
+            "baseVolume": "7991.688327",
+            "usdtVolume": "490292796.93127875",
+            "ts": "1782330767028",
+            "bidPr": "59908.16",
+            "askPr": "59908.17",
+            "bidSz": "0.030068",
+            "askSz": "2.015946",
             "openUtc": "62729.21",
-            "changeUtc24h": "-0.0463",
-            "change24h": "-0.04139"
+            "changeUtc24h": "-0.04497",
+            "change24h": "-0.03906"
           }
         ],
         "data_len": 4,
         "content_type": "application/json"
       },
-      "duration_ms": 271.032
+      "duration_ms": 236.273
     },
     {
-      "ts": "2026-06-24T19:54:34.662147+00:00",
+      "ts": "2026-06-24T19:52:48.796844+00:00",
       "kind": "Bitget live call: GET /api/v2/spot/market/candles?symbol=BTCUSDT&granularity=1min&limit=2",
-      "session_id": "55053e8f5a19",
+      "session_id": "550538418729",
       "request": {
         "method": "GET",
         "url": "https://api.bitget.com/api/v2/spot/market/candles?symbol=BTCUSDT&granularity=1min&limit=2",
@@ -2965,33 +2965,33 @@
       "response": {
         "status": "ok",
         "http_status": 200,
-        "latency_ms": 296.39,
+        "latency_ms": 244.43,
         "data_sample": [
           [
-            "1782330780000",
-            "59892.61",
-            "59904.35",
-            "59859.68",
-            "59871.1",
-            "2.701652",
-            "161784.60931708",
-            "161784.60931708"
+            "1782330660000",
+            "59865",
+            "59912.34",
+            "59865",
+            "59895",
+            "2.622141",
+            "157033.62155238",
+            "157033.62155238"
           ],
           [
-            "1782330840000",
-            "59871.1",
-            "59871.1",
-            "59825.06",
-            "59826.86",
-            "5.717411",
-            "342129.01669045",
-            "342129.01669045"
+            "1782330720000",
+            "59895",
+            "59915",
+            "59877.67",
+            "59901.45",
+            "6.964858",
+            "417234.27613685",
+            "417234.27613685"
           ]
         ],
         "data_len": 4,
         "content_type": "application/json"
       },
-      "duration_ms": 296.39
+      "duration_ms": 244.426
     }
   ]
 }

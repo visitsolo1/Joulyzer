@@ -1,0 +1,40 @@
+# Live Bitget Server Time — raw transcript
+
+_Captured at 2026-06-24T19:54:35Z by `scripts/live_usage_harness.py`._
+
+```bash
+$ curl -sS -A 'Mozilla/5.0' https://api.bitget.com/api/v2/public/time
+```
+
+**Response (HTTP/1.1 200 OK, application/json):**
+
+```json
+# HTTP/1.1 200 OK
+# Date: Wed, 24 Jun 2026 19:54:35 GMT
+# Content-Type: application/json
+# Content-Length: 98
+# Connection: close
+# set-cookie: __cf_bm=SAPOD9OJQuNs8EhdyIYF9G6wrmUJ75GwyYnKDmRx.mM-1782330875.0718637-1.0.1.1-8ivg1wkXLiIlhE_c.rLpHIhLoKkmXJtvSYIKKrj167jWu74tYgKD9rXHgjUWvSHDxjIbFfN.qxD57Ys2O_W9I5od6QgFVHndiswsWn9cwW7gS3sidLqwhK3K31uBU55Z; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.bitget.com; Expires=Wed, 24 Jun 2026 20:24:35 GMT
+# x-traceid: 1652-495091-5970765
+# x-mbx-used-remain-limit: 19
+# Server: cloudflare
+# strict-transport-security: max-age=15768000;includeSubDomains;preload
+# access-control-allow-origin: *
+# access-control-allow-methods: GET, POST, OPTIONS
+# X-Frame-Options: SAMEORIGIN
+# x-xss-protection: 1; mode=block
+# x-content-type-options: nosniff
+# vary: Accept-Encoding
+# cache-status: BYPASS
+# cf-cache-status: DYNAMIC
+# CF-RAY: a10e49013d71c9a9-IAD
+#
+{
+  "code": "00000",
+  "msg": "success",
+  "requestTime": 1782330875247,
+  "data": {
+    "serverTime": "1782330875247"
+  }
+}
+```
