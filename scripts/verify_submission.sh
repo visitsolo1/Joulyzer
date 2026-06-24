@@ -15,18 +15,23 @@ echo "==> Joulyzer submission verifier"
 echo "    root: $ROOT"
 echo
 
-# 1. Install (idempotent)
-echo "==> Step 1/5: pip install -e .[test]"
-pip install --quiet --break-system-packages -e ".[test]" 2>/dev/null || \
-    pip install --quiet -e ".[test]"
+# 1. Install (idempotent; works on Debian PEP 668 systems too)
+echo "==> Step 1/7: pip install -e .[test]"
+if pip install --quiet --break-system-packages -e ".[test]" 2>/dev/null; then
+    :
+elif pip install --quiet -e ".[test]"; then
+    :
+else
+    echo "    !! pip install failed — proceeding anyway (tests may fail)"
+fi
 
 # 2. Tests
-echo "==> Step 2/5: pytest"
+echo "==> Step 2/7: pytest"
 python -m pytest tests/ -v | tee "$ROOT/verifiable_usage_records/pytest_run.log"
 
 # 3. CLI text + JSON
 echo
-echo "==> Step 3/5: CLI runs"
+echo "==> Step 3/7: CLI runs"
 python -m joulyzer examples/sample_journal.csv > /tmp/_text.txt
 python -m joulyzer examples/sample_journal.csv --json > /tmp/_json.json
 {
@@ -40,17 +45,29 @@ echo "    wrote verifiable_usage_records/cli_text_run.txt"
 
 # 4. End-to-end agent integration
 echo
-echo "==> Step 4/5: agent integration example"
+echo "==> Step 4/7: agent integration example"
 python examples/agent_integration.py | tee "$ROOT/verifiable_usage_records/integration_run_stdout.txt"
 
-# 5. Tool surface artifacts
+# 5. Live MCP client → server session (real API call log)
 echo
-echo "==> Step 5/5: tool schema + MCP manifest"
+echo "==> Step 5/7: live MCP client → server session"
+python scripts/mcp_client_demo.py
+
+# 6. Tool surface artifacts
+echo
+echo "==> Step 6/7: tool schema + MCP manifest"
 python -m joulyzer.agent --schema  > "$ROOT/verifiable_usage_records/tool_schema.json"
 python -m joulyzer.agent --manifest > "$ROOT/verifiable_usage_records/mcp_manifest.json"
 echo "    wrote tool_schema.json + mcp_manifest.json"
 
+# 7. Summary
 echo
-echo "==> ALL ARTIFACTS REGENERATED"
+echo "==> Step 7/7: summary"
+echo "    ==> ALL ARTIFACTS REGENERATED"
 ls -la "$ROOT/verifiable_usage_records/"
+echo
+echo "    integration_run/:"
 ls -la "$ROOT/verifiable_usage_records/integration_run/"
+echo
+echo "    live_session/:"
+ls -la "$ROOT/verifiable_usage_records/live_session/" 2>/dev/null || true
