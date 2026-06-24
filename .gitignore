@@ -1,16 +1,36 @@
-# Python
+# Byte-compiled / build artifacts
 __pycache__/
 *.py[cod]
+*$py.class
 *.egg-info/
-.pytest_cache/
+*.egg
 build/
 dist/
+.eggs/
 
-# Editor
-.vscode/
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Test / coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.cache
+
+# IDE / editor
 .idea/
-.DS_Store
+.vscode/
+*.swp
 
-# Local data
-*.local.csv
-report.json
+# OS
+.DS_Store
+Thumbs.db
+
+# Local-only artifacts
+*.local
+.env
+.env.*
+!verifiable_usage_records/.gitkeep

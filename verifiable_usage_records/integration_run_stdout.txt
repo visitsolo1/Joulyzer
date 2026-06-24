@@ -1,0 +1,6 @@
+[ok] fills generated         : 240 (open+close pairs)
+[ok] api call log written    : /run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/integration_run/bitget_api_call_log.jsonl
+[ok] journal csv written     : /run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/integration_run/agent_session_journal.csv
+[ok] agent tool call result  : /run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/integration_run/agent_tool_call_result.json
+
+[ok] analyzed 120 closed trades, net PnL 4,674.38, win rate 57.5%, profit factor 1.42

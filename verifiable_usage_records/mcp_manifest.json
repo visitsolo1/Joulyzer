@@ -1,0 +1,33 @@
+{
+  "name": "joulyzer",
+  "version": "0.2.0",
+  "description": "Trade-journal analytics for AI agents. Ingests Bitget / Binance / Bybit CSV exports and returns deterministic performance metrics.",
+  "tools": [
+    {
+      "name": "analyze_journal",
+      "description": "Load a CSV trade journal (Bitget / Binance / Bybit / generic export) and return structured performance analytics: win rate, profit factor, expectancy, drawdown, MAE/MFE-style metrics, symbol breakdown, time-of-day breakdown, and tag breakdown. Use this whenever the user shares a trade log or asks about their edge, win rate, best setup, or worst hour.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "csv_path": {
+            "type": "string",
+            "description": "Absolute or relative path to the CSV trade journal. Headers are auto-detected (see joulyzer SKILL.md for aliases)."
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "text",
+              "json",
+              "dict"
+            ],
+            "description": "Output format. 'text' = human-readable report; 'json' = stringified JSON for piping into another tool; 'dict' = raw dict (only usable in-process).",
+            "default": "text"
+          }
+        },
+        "required": [
+          "csv_path"
+        ]
+      }
+    }
+  ]
+}

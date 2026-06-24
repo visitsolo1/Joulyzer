@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-9.1.1, pluggy-1.6.0 -- /usr/bin/python
+cachedir: .pytest_cache
+rootdir: /run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect
+configfile: pyproject.toml
+collecting ... collected 16 items
+
+tests/test_agent_and_generator.py::test_generator_is_deterministic PASSED [  6%]
+tests/test_agent_and_generator.py::test_generator_different_seeds_diverge PASSED [ 12%]
+tests/test_agent_and_generator.py::test_fills_have_bitget_shape PASSED   [ 18%]
+tests/test_agent_and_generator.py::test_journal_round_trip PASSED        [ 25%]
+tests/test_agent_and_generator.py::test_api_log_jsonl_shape PASSED       [ 31%]
+tests/test_agent_and_generator.py::test_agent_text_format PASSED         [ 37%]
+tests/test_agent_and_generator.py::test_agent_json_format PASSED         [ 43%]
+tests/test_agent_and_generator.py::test_agent_dict_format PASSED         [ 50%]
+tests/test_agent_and_generator.py::test_agent_missing_file_returns_structured_error PASSED [ 56%]
+tests/test_agent_and_generator.py::test_tool_schema_shape PASSED         [ 62%]
+tests/test_agent_and_generator.py::test_mcp_manifest_has_tool PASSED     [ 68%]
+tests/test_joulyzer.py::test_load_sample PASSED                          [ 75%]
+tests/test_joulyzer.py::test_metrics_shape PASSED                        [ 81%]
+tests/test_joulyzer.py::test_text_report_contains_key_lines PASSED       [ 87%]
+tests/test_joulyzer.py::test_trade_helpers PASSED                        [ 93%]
+tests/test_joulyzer.py::test_load_missing_file PASSED                    [100%]
+
+============================== 16 passed in 0.07s ==============================
