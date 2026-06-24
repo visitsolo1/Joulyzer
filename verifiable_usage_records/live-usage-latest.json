@@ -1,0 +1,2998 @@
+{
+  "session_id": "5505302ea0df",
+  "started_at": "2026-06-24T19:50:31.823589+00:00",
+  "ended_at": "2026-06-24T19:50:33.605024+00:00",
+  "duration_seconds": 1.781,
+  "summary": {
+    "total_records": 33,
+    "cli": 10,
+    "function": 11,
+    "mcp": 9,
+    "bitget_live": 3
+  },
+  "by_caller": {
+    "cli": {
+      "calls": 10,
+      "ok": 9,
+      "errors": 1,
+      "mean_latency_ms": 84.646,
+      "p50_latency_ms": 74.65
+    },
+    "function": {
+      "calls": 11,
+      "ok": 9,
+      "errors": 2,
+      "mean_latency_ms": 2.179,
+      "p50_latency_ms": 1.961
+    },
+    "mcp": {
+      "calls": 9,
+      "ok": 9,
+      "errors": 0,
+      "mean_latency_ms": 3.603,
+      "p50_latency_ms": 2.336
+    },
+    "bitget_live": {
+      "calls": 3,
+      "ok": 3,
+      "errors": 0,
+      "mean_latency_ms": 285.214,
+      "p50_latency_ms": 259.272
+    }
+  },
+  "by_kind": {
+    "CLI: analyze_journal text": 4,
+    "function: analyze_journal text": 4,
+    "MCP: tools/call analyze_journal text": 3,
+    "CLI: analyze_journal json": 3,
+    "function: analyze_journal json": 4,
+    "MCP: tools/call analyze_journal json": 3,
+    "CLI: analyze_journal dict": 3,
+    "function: analyze_journal dict": 3,
+    "MCP: tools/call analyze_journal dict": 3,
+    "Bitget live call: GET /api/v2/public/time": 1,
+    "Bitget live call: GET /api/v2/spot/market/tickers?symbol=BTCUSDT": 1,
+    "Bitget live call: GET /api/v2/spot/market/candles?symbol=BTCUSDT&granularity=1min&limit=2": 1
+  },
+  "records": [
+    {
+      "ts": "2026-06-24T19:50:31.829600+00:00",
+      "kind": "CLI: analyze_journal text",
+      "request": {
+        "method": "subprocess.run",
+        "cmd": [
+          "/usr/bin/python",
+          "-m",
+          "joulyzer",
+          "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/examples/sample_journal.csv"
+        ],
+        "cwd": ".",
+        "csv_path": "examples/sample_journal.csv",
+        "format": "text"
+      },
+      "response": {
+        "status": "ok",
+        "returncode": 0,
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 7   Wins: 5   Losses: 2   Open: 1\nWin rate:        71.4%\nNet PnL:         279.00\nGross profit:    419.00   Gross loss: 140.00\nProfit factor:   2.99\nAvg win:         83.80   Avg loss: -70.00\nExpectancy:      39.86 per trade\nMax drawdown:    100.00\nAvg hold (min):  77.4\nBest trade:      275.00   Worst: -100.00\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=185.00\n  ETHUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=70.00\n  SOLUSDT    trades=2    wins=2    losses=0    WR=100.0%  net=24.00\n\n--- By hour (entry) ---\n  08:00  trades=1    net=6.00\n  09:00  trades=1    net=275.00\n  10:00  trades=1    net=-100.00\n  11:00  trades=1    net=-40.00\n  13:00  trades=1    net=110.00\n  14:00  trades=1    net=10.00\n  15:00  trades=1    net=18.00\n\n--- By tag ---\n  breakout       trades=2    net=385.00\n  scalp          trades=3    net=34.00\n  fomo           trades=1    net=-40.00\n  revenge        trades=1    net=-100.00\n=================================================\n"
+      },
+      "duration_ms": 164.422,
+      "caller": "cli"
+    },
+    {
+      "ts": "2026-06-24T19:50:31.994630+00:00",
+      "kind": "function: analyze_journal text",
+      "request": {
+        "module": "joulyzer",
+        "fn": "analyze_journal",
+        "args": {
+          "csv_path": "examples/sample_journal.csv",
+          "format": "text"
+        }
+      },
+      "response": {
+        "status": "ok",
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 7   Wins: 5   Losses: 2   Open: 1\nWin rate:        71.4%\nNet PnL:         279.00\nGross profit:    419.00   Gross loss: 140.00\nProfit factor:   2.99\nAvg win:         83.80   Avg loss: -70.00\nExpectancy:      39.86 per trade\nMax drawdown:    100.00\nAvg hold (min):  77.4\nBest trade:      275.00   Worst: -100.00\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=185.00\n  ETHUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=70.00\n  SOLUSDT    trades=2    wins=2    losses=0    WR=100.0%  net=24.00\n\n--- By hour (entry) ---\n  08:00  trades=1    net=6.00\n  09:00  trades=1    net=275.00\n  10:00  trades=1    net=-100.00\n  11:00  trades=1    net=-40.00\n  13:00  trades=1    net=110.00\n  14:00  trades=1    net=10.00\n  15:00  trades=1    net=18.00\n\n--- By tag ---\n  breakout       trades=2    net=385.00\n  scalp          trades=3    net=34.00\n  fomo           trades=1    net=-40.00\n  revenge        trades=1    net=-100.00\n================================================="
+      },
+      "duration_ms": 2.123,
+      "caller": "function"
+    },
+    {
+      "ts": "2026-06-24T19:50:31.996851+00:00",
+      "kind": "MCP: tools/call analyze_journal text",
+      "request": {
+        "method": "stdio JSON-RPC",
+        "server": "python -m joulyzer.agent --mcp",
+        "payload": {
+          "jsonrpc": "2.0",
+          "id": 1000,
+          "method": "tools/call",
+          "params": {
+            "name": "analyze_journal",
+            "arguments": {
+              "csv_path": "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/examples/sample_journal.csv",
+              "format": "text"
+            }
+          }
+        },
+        "csv_path": "examples/sample_journal.csv",
+        "format": "text"
+      },
+      "response": {
+        "status": "ok",
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 7   Wins: 5   Losses: 2   Open: 1\nWin rate:        71.4%\nNet PnL:         279.00\nGross profit:    419.00   Gross loss: 140.00\nProfit factor:   2.99\nAvg win:         83.80   Avg loss: -70.00\nExpectancy:      39.86 per trade\nMax drawdown:    100.00\nAvg hold (min):  77.4\nBest trade:      275.00   Worst: -100.00\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=185.00\n  ETHUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=70.00\n  SOLUSDT    trades=2    wins=2    losses=0    WR=100.0%  net=24.00\n\n--- By hour (entry) ---\n  08:00  trades=1    net=6.00\n  09:00  trades=1    net=275.00\n  10:00  trades=1    net=-100.00\n  11:00  trades=1    net=-40.00\n  13:00  trades=1    net=110.00\n  14:00  trades=1    net=10.00\n  15:00  trades=1    net=18.00\n\n--- By tag ---\n  breakout       trades=2    net=385.00\n  scalp          trades=3    net=34.00\n  fomo           trades=1    net=-40.00\n  revenge        trades=1    net=-100.00\n================================================="
+      },
+      "duration_ms": 4.677,
+      "caller": "mcp"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.001606+00:00",
+      "kind": "CLI: analyze_journal json",
+      "request": {
+        "method": "subprocess.run",
+        "cmd": [
+          "/usr/bin/python",
+          "-m",
+          "joulyzer",
+          "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/examples/sample_journal.csv",
+          "--json"
+        ],
+        "cwd": ".",
+        "csv_path": "examples/sample_journal.csv",
+        "format": "json"
+      },
+      "response": {
+        "status": "ok",
+        "returncode": 0,
+        "body": {
+          "trade_count": 7,
+          "win_count": 5,
+          "loss_count": 2,
+          "open_count": 1,
+          "win_rate": 0.7142857142857143,
+          "net_pnl": 279.0,
+          "gross_profit": 419.0,
+          "gross_loss": 140.0,
+          "profit_factor": 2.992857142857143,
+          "avg_win": 83.8,
+          "avg_loss": -70.0,
+          "expectancy": 39.857142857142854,
+          "max_drawdown": 100.0,
+          "avg_hold_minutes": 77.42857142857143,
+          "best_trade": 275.0,
+          "worst_trade": -100.0,
+          "by_symbol": [
+            {
+              "symbol": "BTCUSDT",
+              "trades": 3,
+              "wins": 2,
+              "losses": 1,
+              "net_pnl": 185.0,
+              "win_rate": 0.6666666666666666
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": 70.0,
+              "win_rate": 0.5
+            },
+            {
+              "symbol": "SOLUSDT",
+              "trades": 2,
+              "wins": 2,
+              "losses": 0,
+              "net_pnl": 24.0,
+              "win_rate": 1.0
+            }
+          ],
+          "by_hour": {
+            "9": {
+              "trades": 1,
+              "net_pnl": 275.0
+            },
+            "14": {
+              "trades": 1,
+              "net_pnl": 10.0
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": -40.0
+            },
+            "13": {
+              "trades": 1,
+              "net_pnl": 110.0
+            },
+            "8": {
+              "trades": 1,
+              "net_pnl": 6.0
+            },
+            "15": {
+              "trades": 1,
+              "net_pnl": 18.0
+            },
+            "10": {
+              "trades": 1,
+              "net_pnl": -100.0
+            }
+          },
+          "by_tag": {
+            "breakout": {
+              "trades": 2,
+              "net_pnl": 385.0
+            },
+            "scalp": {
+              "trades": 3,
+              "net_pnl": 34.0
+            },
+            "fomo": {
+              "trades": 1,
+              "net_pnl": -40.0
+            },
+            "revenge": {
+              "trades": 1,
+              "net_pnl": -100.0
+            }
+          }
+        }
+      },
+      "duration_ms": 81.687,
+      "caller": "cli"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.083472+00:00",
+      "kind": "function: analyze_journal json",
+      "request": {
+        "module": "joulyzer",
+        "fn": "analyze_journal",
+        "args": {
+          "csv_path": "examples/sample_journal.csv",
+          "format": "json"
+        }
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 7,
+          "win_count": 5,
+          "loss_count": 2,
+          "open_count": 1,
+          "win_rate": 0.7142857142857143,
+          "net_pnl": 279.0,
+          "gross_profit": 419.0,
+          "gross_loss": 140.0,
+          "profit_factor": 2.992857142857143,
+          "avg_win": 83.8,
+          "avg_loss": -70.0,
+          "expectancy": 39.857142857142854,
+          "max_drawdown": 100.0,
+          "avg_hold_minutes": 77.42857142857143,
+          "best_trade": 275.0,
+          "worst_trade": -100.0,
+          "by_symbol": [
+            {
+              "symbol": "BTCUSDT",
+              "trades": 3,
+              "wins": 2,
+              "losses": 1,
+              "net_pnl": 185.0,
+              "win_rate": 0.6666666666666666
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": 70.0,
+              "win_rate": 0.5
+            },
+            {
+              "symbol": "SOLUSDT",
+              "trades": 2,
+              "wins": 2,
+              "losses": 0,
+              "net_pnl": 24.0,
+              "win_rate": 1.0
+            }
+          ],
+          "by_hour": {
+            "9": {
+              "trades": 1,
+              "net_pnl": 275.0
+            },
+            "14": {
+              "trades": 1,
+              "net_pnl": 10.0
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": -40.0
+            },
+            "13": {
+              "trades": 1,
+              "net_pnl": 110.0
+            },
+            "8": {
+              "trades": 1,
+              "net_pnl": 6.0
+            },
+            "15": {
+              "trades": 1,
+              "net_pnl": 18.0
+            },
+            "10": {
+              "trades": 1,
+              "net_pnl": -100.0
+            }
+          },
+          "by_tag": {
+            "breakout": {
+              "trades": 2,
+              "net_pnl": 385.0
+            },
+            "scalp": {
+              "trades": 3,
+              "net_pnl": 34.0
+            },
+            "fomo": {
+              "trades": 1,
+              "net_pnl": -40.0
+            },
+            "revenge": {
+              "trades": 1,
+              "net_pnl": -100.0
+            }
+          }
+        }
+      },
+      "duration_ms": 1.188,
+      "caller": "function"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.084752+00:00",
+      "kind": "MCP: tools/call analyze_journal json",
+      "request": {
+        "method": "stdio JSON-RPC",
+        "server": "python -m joulyzer.agent --mcp",
+        "payload": {
+          "jsonrpc": "2.0",
+          "id": 1001,
+          "method": "tools/call",
+          "params": {
+            "name": "analyze_journal",
+            "arguments": {
+              "csv_path": "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/examples/sample_journal.csv",
+              "format": "json"
+            }
+          }
+        },
+        "csv_path": "examples/sample_journal.csv",
+        "format": "json"
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 7,
+          "win_count": 5,
+          "loss_count": 2,
+          "open_count": 1,
+          "win_rate": 0.7142857142857143,
+          "net_pnl": 279.0,
+          "gross_profit": 419.0,
+          "gross_loss": 140.0,
+          "profit_factor": 2.992857142857143,
+          "avg_win": 83.8,
+          "avg_loss": -70.0,
+          "expectancy": 39.857142857142854,
+          "max_drawdown": 100.0,
+          "avg_hold_minutes": 77.42857142857143,
+          "best_trade": 275.0,
+          "worst_trade": -100.0,
+          "by_symbol": [
+            {
+              "symbol": "BTCUSDT",
+              "trades": 3,
+              "wins": 2,
+              "losses": 1,
+              "net_pnl": 185.0,
+              "win_rate": 0.6666666666666666
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": 70.0,
+              "win_rate": 0.5
+            },
+            {
+              "symbol": "SOLUSDT",
+              "trades": 2,
+              "wins": 2,
+              "losses": 0,
+              "net_pnl": 24.0,
+              "win_rate": 1.0
+            }
+          ],
+          "by_hour": {
+            "9": {
+              "trades": 1,
+              "net_pnl": 275.0
+            },
+            "14": {
+              "trades": 1,
+              "net_pnl": 10.0
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": -40.0
+            },
+            "13": {
+              "trades": 1,
+              "net_pnl": 110.0
+            },
+            "8": {
+              "trades": 1,
+              "net_pnl": 6.0
+            },
+            "15": {
+              "trades": 1,
+              "net_pnl": 18.0
+            },
+            "10": {
+              "trades": 1,
+              "net_pnl": -100.0
+            }
+          },
+          "by_tag": {
+            "breakout": {
+              "trades": 2,
+              "net_pnl": 385.0
+            },
+            "scalp": {
+              "trades": 3,
+              "net_pnl": 34.0
+            },
+            "fomo": {
+              "trades": 1,
+              "net_pnl": -40.0
+            },
+            "revenge": {
+              "trades": 1,
+              "net_pnl": -100.0
+            }
+          }
+        }
+      },
+      "duration_ms": 1.433,
+      "caller": "mcp"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.086286+00:00",
+      "kind": "CLI: analyze_journal dict",
+      "request": {
+        "method": "subprocess.run",
+        "cmd": [
+          "/usr/bin/python",
+          "-m",
+          "joulyzer",
+          "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/examples/sample_journal.csv"
+        ],
+        "cwd": ".",
+        "csv_path": "examples/sample_journal.csv",
+        "format": "dict"
+      },
+      "response": {
+        "status": "ok",
+        "returncode": 0,
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 7   Wins: 5   Losses: 2   Open: 1\nWin rate:        71.4%\nNet PnL:         279.00\nGross profit:    419.00   Gross loss: 140.00\nProfit factor:   2.99\nAvg win:         83.80   Avg loss: -70.00\nExpectancy:      39.86 per trade\nMax drawdown:    100.00\nAvg hold (min):  77.4\nBest trade:      275.00   Worst: -100.00\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=185.00\n  ETHUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=70.00\n  SOLUSDT    trades=2    wins=2    losses=0    WR=100.0%  net=24.00\n\n--- By hour (entry) ---\n  08:00  trades=1    net=6.00\n  09:00  trades=1    net=275.00\n  10:00  trades=1    net=-100.00\n  11:00  trades=1    net=-40.00\n  13:00  trades=1    net=110.00\n  14:00  trades=1    net=10.00\n  15:00  trades=1    net=18.00\n\n--- By tag ---\n  breakout       trades=2    net=385.00\n  scalp          trades=3    net=34.00\n  fomo           trades=1    net=-40.00\n  revenge        trades=1    net=-100.00\n=================================================\n"
+      },
+      "duration_ms": 73.352,
+      "caller": "cli"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.159766+00:00",
+      "kind": "function: analyze_journal dict",
+      "request": {
+        "module": "joulyzer",
+        "fn": "analyze_journal",
+        "args": {
+          "csv_path": "examples/sample_journal.csv",
+          "format": "dict"
+        }
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 7,
+          "win_count": 5,
+          "loss_count": 2,
+          "open_count": 1,
+          "win_rate": 0.7142857142857143,
+          "net_pnl": 279.0,
+          "gross_profit": 419.0,
+          "gross_loss": 140.0,
+          "profit_factor": 2.992857142857143,
+          "avg_win": 83.8,
+          "avg_loss": -70.0,
+          "expectancy": 39.857142857142854,
+          "max_drawdown": 100.0,
+          "avg_hold_minutes": 77.42857142857143,
+          "best_trade": 275.0,
+          "worst_trade": -100.0,
+          "by_symbol": [
+            {
+              "symbol": "BTCUSDT",
+              "trades": 3,
+              "wins": 2,
+              "losses": 1,
+              "net_pnl": 185.0,
+              "win_rate": 0.6666666666666666
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": 70.0,
+              "win_rate": 0.5
+            },
+            {
+              "symbol": "SOLUSDT",
+              "trades": 2,
+              "wins": 2,
+              "losses": 0,
+              "net_pnl": 24.0,
+              "win_rate": 1.0
+            }
+          ],
+          "by_hour": {
+            "9": {
+              "trades": 1,
+              "net_pnl": 275.0
+            },
+            "14": {
+              "trades": 1,
+              "net_pnl": 10.0
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": -40.0
+            },
+            "13": {
+              "trades": 1,
+              "net_pnl": 110.0
+            },
+            "8": {
+              "trades": 1,
+              "net_pnl": 6.0
+            },
+            "15": {
+              "trades": 1,
+              "net_pnl": 18.0
+            },
+            "10": {
+              "trades": 1,
+              "net_pnl": -100.0
+            }
+          },
+          "by_tag": {
+            "breakout": {
+              "trades": 2,
+              "net_pnl": 385.0
+            },
+            "scalp": {
+              "trades": 3,
+              "net_pnl": 34.0
+            },
+            "fomo": {
+              "trades": 1,
+              "net_pnl": -40.0
+            },
+            "revenge": {
+              "trades": 1,
+              "net_pnl": -100.0
+            }
+          }
+        }
+      },
+      "duration_ms": 1.015,
+      "caller": "function"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.160854+00:00",
+      "kind": "MCP: tools/call analyze_journal dict",
+      "request": {
+        "method": "stdio JSON-RPC",
+        "server": "python -m joulyzer.agent --mcp",
+        "payload": {
+          "jsonrpc": "2.0",
+          "id": 1002,
+          "method": "tools/call",
+          "params": {
+            "name": "analyze_journal",
+            "arguments": {
+              "csv_path": "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/examples/sample_journal.csv",
+              "format": "dict"
+            }
+          }
+        },
+        "csv_path": "examples/sample_journal.csv",
+        "format": "dict"
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 7,
+          "win_count": 5,
+          "loss_count": 2,
+          "open_count": 1,
+          "win_rate": 0.7142857142857143,
+          "net_pnl": 279.0,
+          "gross_profit": 419.0,
+          "gross_loss": 140.0,
+          "profit_factor": 2.992857142857143,
+          "avg_win": 83.8,
+          "avg_loss": -70.0,
+          "expectancy": 39.857142857142854,
+          "max_drawdown": 100.0,
+          "avg_hold_minutes": 77.42857142857143,
+          "best_trade": 275.0,
+          "worst_trade": -100.0,
+          "by_symbol": [
+            {
+              "symbol": "BTCUSDT",
+              "trades": 3,
+              "wins": 2,
+              "losses": 1,
+              "net_pnl": 185.0,
+              "win_rate": 0.6666666666666666
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": 70.0,
+              "win_rate": 0.5
+            },
+            {
+              "symbol": "SOLUSDT",
+              "trades": 2,
+              "wins": 2,
+              "losses": 0,
+              "net_pnl": 24.0,
+              "win_rate": 1.0
+            }
+          ],
+          "by_hour": {
+            "9": {
+              "trades": 1,
+              "net_pnl": 275.0
+            },
+            "14": {
+              "trades": 1,
+              "net_pnl": 10.0
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": -40.0
+            },
+            "13": {
+              "trades": 1,
+              "net_pnl": 110.0
+            },
+            "8": {
+              "trades": 1,
+              "net_pnl": 6.0
+            },
+            "15": {
+              "trades": 1,
+              "net_pnl": 18.0
+            },
+            "10": {
+              "trades": 1,
+              "net_pnl": -100.0
+            }
+          },
+          "by_tag": {
+            "breakout": {
+              "trades": 2,
+              "net_pnl": 385.0
+            },
+            "scalp": {
+              "trades": 3,
+              "net_pnl": 34.0
+            },
+            "fomo": {
+              "trades": 1,
+              "net_pnl": -40.0
+            },
+            "revenge": {
+              "trades": 1,
+              "net_pnl": -100.0
+            }
+          }
+        }
+      },
+      "duration_ms": 1.281,
+      "caller": "mcp"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.162238+00:00",
+      "kind": "CLI: analyze_journal text",
+      "request": {
+        "method": "subprocess.run",
+        "cmd": [
+          "/usr/bin/python",
+          "-m",
+          "joulyzer",
+          "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_small.csv"
+        ],
+        "cwd": ".",
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_small.csv",
+        "format": "text"
+      },
+      "response": {
+        "status": "ok",
+        "returncode": 0,
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 25   Wins: 20   Losses: 5   Open: 0\nWin rate:        80.0%\nNet PnL:         965.61\nGross profit:    1,296.54   Gross loss: 330.93\nProfit factor:   3.92\nAvg win:         64.83   Avg loss: -66.19\nExpectancy:      38.62 per trade\nMax drawdown:    246.63\nAvg hold (min):  41.7\nBest trade:      567.22   Worst: -246.63\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=820.94\n  ETHUSDT    trades=14   wins=12   losses=2    WR= 85.7%  net=136.97\n  SOLUSDT    trades=4    wins=4    losses=0    WR=100.0%  net=7.78\n  DOGEUSDT   trades=2    wins=1    losses=1    WR= 50.0%  net=-0.00\n  XRPUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=-0.08\n\n--- By hour (entry) ---\n  00:00  trades=1    net=-62.70\n  01:00  trades=1    net=7.53\n  03:00  trades=1    net=2.75\n  04:00  trades=1    net=-21.50\n  05:00  trades=1    net=4.20\n  06:00  trades=1    net=16.53\n  08:00  trades=1    net=5.72\n  09:00  trades=1    net=-0.10\n  10:00  trades=1    net=0.36\n  11:00  trades=1    net=1.89\n  12:00  trades=1    net=500.34\n  13:00  trades=2    net=73.73\n  14:00  trades=3    net=-243.83\n  15:00  trades=1    net=28.47\n  16:00  trades=1    net=567.22\n  17:00  trades=1    net=16.03\n  18:00  trades=1    net=2.41\n  19:00  trades=1    net=0.00\n  20:00  trades=2    net=9.88\n  22:00  trades=1    net=24.23\n  23:00  trades=1    net=32.44\n\n--- By tag ---\n  win            trades=20   net=1,296.54\n  intraday       trades=15   net=831.75\n  scalp          trades=10   net=133.85\n  loss           trades=5    net=-330.93\n=================================================\n"
+      },
+      "duration_ms": 71.751,
+      "caller": "cli"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.234192+00:00",
+      "kind": "function: analyze_journal text",
+      "request": {
+        "module": "joulyzer",
+        "fn": "analyze_journal",
+        "args": {
+          "csv_path": "verifiable_usage_records/live_usage_inputs/generated_small.csv",
+          "format": "text"
+        }
+      },
+      "response": {
+        "status": "ok",
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 25   Wins: 20   Losses: 5   Open: 0\nWin rate:        80.0%\nNet PnL:         965.61\nGross profit:    1,296.54   Gross loss: 330.93\nProfit factor:   3.92\nAvg win:         64.83   Avg loss: -66.19\nExpectancy:      38.62 per trade\nMax drawdown:    246.63\nAvg hold (min):  41.7\nBest trade:      567.22   Worst: -246.63\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=820.94\n  ETHUSDT    trades=14   wins=12   losses=2    WR= 85.7%  net=136.97\n  SOLUSDT    trades=4    wins=4    losses=0    WR=100.0%  net=7.78\n  DOGEUSDT   trades=2    wins=1    losses=1    WR= 50.0%  net=-0.00\n  XRPUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=-0.08\n\n--- By hour (entry) ---\n  00:00  trades=1    net=-62.70\n  01:00  trades=1    net=7.53\n  03:00  trades=1    net=2.75\n  04:00  trades=1    net=-21.50\n  05:00  trades=1    net=4.20\n  06:00  trades=1    net=16.53\n  08:00  trades=1    net=5.72\n  09:00  trades=1    net=-0.10\n  10:00  trades=1    net=0.36\n  11:00  trades=1    net=1.89\n  12:00  trades=1    net=500.34\n  13:00  trades=2    net=73.73\n  14:00  trades=3    net=-243.83\n  15:00  trades=1    net=28.47\n  16:00  trades=1    net=567.22\n  17:00  trades=1    net=16.03\n  18:00  trades=1    net=2.41\n  19:00  trades=1    net=0.00\n  20:00  trades=2    net=9.88\n  22:00  trades=1    net=24.23\n  23:00  trades=1    net=32.44\n\n--- By tag ---\n  win            trades=20   net=1,296.54\n  intraday       trades=15   net=831.75\n  scalp          trades=10   net=133.85\n  loss           trades=5    net=-330.93\n================================================="
+      },
+      "duration_ms": 1.77,
+      "caller": "function"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.236052+00:00",
+      "kind": "MCP: tools/call analyze_journal text",
+      "request": {
+        "method": "stdio JSON-RPC",
+        "server": "python -m joulyzer.agent --mcp",
+        "payload": {
+          "jsonrpc": "2.0",
+          "id": 1003,
+          "method": "tools/call",
+          "params": {
+            "name": "analyze_journal",
+            "arguments": {
+              "csv_path": "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_small.csv",
+              "format": "text"
+            }
+          }
+        },
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_small.csv",
+        "format": "text"
+      },
+      "response": {
+        "status": "ok",
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 25   Wins: 20   Losses: 5   Open: 0\nWin rate:        80.0%\nNet PnL:         965.61\nGross profit:    1,296.54   Gross loss: 330.93\nProfit factor:   3.92\nAvg win:         64.83   Avg loss: -66.19\nExpectancy:      38.62 per trade\nMax drawdown:    246.63\nAvg hold (min):  41.7\nBest trade:      567.22   Worst: -246.63\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=820.94\n  ETHUSDT    trades=14   wins=12   losses=2    WR= 85.7%  net=136.97\n  SOLUSDT    trades=4    wins=4    losses=0    WR=100.0%  net=7.78\n  DOGEUSDT   trades=2    wins=1    losses=1    WR= 50.0%  net=-0.00\n  XRPUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=-0.08\n\n--- By hour (entry) ---\n  00:00  trades=1    net=-62.70\n  01:00  trades=1    net=7.53\n  03:00  trades=1    net=2.75\n  04:00  trades=1    net=-21.50\n  05:00  trades=1    net=4.20\n  06:00  trades=1    net=16.53\n  08:00  trades=1    net=5.72\n  09:00  trades=1    net=-0.10\n  10:00  trades=1    net=0.36\n  11:00  trades=1    net=1.89\n  12:00  trades=1    net=500.34\n  13:00  trades=2    net=73.73\n  14:00  trades=3    net=-243.83\n  15:00  trades=1    net=28.47\n  16:00  trades=1    net=567.22\n  17:00  trades=1    net=16.03\n  18:00  trades=1    net=2.41\n  19:00  trades=1    net=0.00\n  20:00  trades=2    net=9.88\n  22:00  trades=1    net=24.23\n  23:00  trades=1    net=32.44\n\n--- By tag ---\n  win            trades=20   net=1,296.54\n  intraday       trades=15   net=831.75\n  scalp          trades=10   net=133.85\n  loss           trades=5    net=-330.93\n================================================="
+      },
+      "duration_ms": 1.929,
+      "caller": "mcp"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.238057+00:00",
+      "kind": "CLI: analyze_journal json",
+      "request": {
+        "method": "subprocess.run",
+        "cmd": [
+          "/usr/bin/python",
+          "-m",
+          "joulyzer",
+          "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_small.csv",
+          "--json"
+        ],
+        "cwd": ".",
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_small.csv",
+        "format": "json"
+      },
+      "response": {
+        "status": "ok",
+        "returncode": 0,
+        "body": {
+          "trade_count": 25,
+          "win_count": 20,
+          "loss_count": 5,
+          "open_count": 0,
+          "win_rate": 0.8,
+          "net_pnl": 965.6083000000002,
+          "gross_profit": 1296.5397,
+          "gross_loss": 330.9314,
+          "profit_factor": 3.9178503460233753,
+          "avg_win": 64.826985,
+          "avg_loss": -66.18628,
+          "expectancy": 38.624332,
+          "max_drawdown": 246.6259,
+          "avg_hold_minutes": 41.73533333333333,
+          "best_trade": 567.2185,
+          "worst_trade": -246.6259,
+          "by_symbol": [
+            {
+              "symbol": "BTCUSDT",
+              "trades": 3,
+              "wins": 2,
+              "losses": 1,
+              "net_pnl": 820.9369999999999,
+              "win_rate": 0.6666666666666666
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 14,
+              "wins": 12,
+              "losses": 2,
+              "net_pnl": 136.9734,
+              "win_rate": 0.8571428571428571
+            },
+            {
+              "symbol": "SOLUSDT",
+              "trades": 4,
+              "wins": 4,
+              "losses": 0,
+              "net_pnl": 7.7825999999999995,
+              "win_rate": 1.0
+            },
+            {
+              "symbol": "DOGEUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": -0.0037999999999999996,
+              "win_rate": 0.5
+            },
+            {
+              "symbol": "XRPUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": -0.0809,
+              "win_rate": 0.5
+            }
+          ],
+          "by_hour": {
+            "13": {
+              "trades": 2,
+              "net_pnl": 73.7288
+            },
+            "14": {
+              "trades": 3,
+              "net_pnl": -243.82670000000002
+            },
+            "16": {
+              "trades": 1,
+              "net_pnl": 567.2185
+            },
+            "17": {
+              "trades": 1,
+              "net_pnl": 16.0338
+            },
+            "18": {
+              "trades": 1,
+              "net_pnl": 2.4075
+            },
+            "19": {
+              "trades": 1,
+              "net_pnl": 0.0004
+            },
+            "20": {
+              "trades": 2,
+              "net_pnl": 9.876499999999998
+            },
+            "22": {
+              "trades": 1,
+              "net_pnl": 24.2264
+            },
+            "23": {
+              "trades": 1,
+              "net_pnl": 32.4425
+            },
+            "0": {
+              "trades": 1,
+              "net_pnl": -62.7047
+            },
+            "1": {
+              "trades": 1,
+              "net_pnl": 7.529
+            },
+            "3": {
+              "trades": 1,
+              "net_pnl": 2.7498
+            },
+            "4": {
+              "trades": 1,
+              "net_pnl": -21.4963
+            },
+            "5": {
+              "trades": 1,
+              "net_pnl": 4.2037
+            },
+            "6": {
+              "trades": 1,
+              "net_pnl": 16.5323
+            },
+            "8": {
+              "trades": 1,
+              "net_pnl": 5.7238
+            },
+            "9": {
+              "trades": 1,
+              "net_pnl": -0.1003
+            },
+            "10": {
+              "trades": 1,
+              "net_pnl": 0.3613
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": 1.8917
+            },
+            "12": {
+              "trades": 1,
+              "net_pnl": 500.3444
+            },
+            "15": {
+              "trades": 1,
+              "net_pnl": 28.4659
+            }
+          },
+          "by_tag": {
+            "win": {
+              "trades": 20,
+              "net_pnl": 1296.5397
+            },
+            "intraday": {
+              "trades": 15,
+              "net_pnl": 831.7539999999999
+            },
+            "scalp": {
+              "trades": 10,
+              "net_pnl": 133.8543
+            },
+            "loss": {
+              "trades": 5,
+              "net_pnl": -330.9314
+            }
+          }
+        }
+      },
+      "duration_ms": 73.789,
+      "caller": "cli"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.311995+00:00",
+      "kind": "function: analyze_journal json",
+      "request": {
+        "module": "joulyzer",
+        "fn": "analyze_journal",
+        "args": {
+          "csv_path": "verifiable_usage_records/live_usage_inputs/generated_small.csv",
+          "format": "json"
+        }
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 25,
+          "win_count": 20,
+          "loss_count": 5,
+          "open_count": 0,
+          "win_rate": 0.8,
+          "net_pnl": 965.6083000000002,
+          "gross_profit": 1296.5397,
+          "gross_loss": 330.9314,
+          "profit_factor": 3.9178503460233753,
+          "avg_win": 64.826985,
+          "avg_loss": -66.18628,
+          "expectancy": 38.624332,
+          "max_drawdown": 246.6259,
+          "avg_hold_minutes": 41.73533333333333,
+          "best_trade": 567.2185,
+          "worst_trade": -246.6259,
+          "by_symbol": [
+            {
+              "symbol": "BTCUSDT",
+              "trades": 3,
+              "wins": 2,
+              "losses": 1,
+              "net_pnl": 820.9369999999999,
+              "win_rate": 0.6666666666666666
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 14,
+              "wins": 12,
+              "losses": 2,
+              "net_pnl": 136.9734,
+              "win_rate": 0.8571428571428571
+            },
+            {
+              "symbol": "SOLUSDT",
+              "trades": 4,
+              "wins": 4,
+              "losses": 0,
+              "net_pnl": 7.7825999999999995,
+              "win_rate": 1.0
+            },
+            {
+              "symbol": "DOGEUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": -0.0037999999999999996,
+              "win_rate": 0.5
+            },
+            {
+              "symbol": "XRPUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": -0.0809,
+              "win_rate": 0.5
+            }
+          ],
+          "by_hour": {
+            "13": {
+              "trades": 2,
+              "net_pnl": 73.7288
+            },
+            "14": {
+              "trades": 3,
+              "net_pnl": -243.82670000000002
+            },
+            "16": {
+              "trades": 1,
+              "net_pnl": 567.2185
+            },
+            "17": {
+              "trades": 1,
+              "net_pnl": 16.0338
+            },
+            "18": {
+              "trades": 1,
+              "net_pnl": 2.4075
+            },
+            "19": {
+              "trades": 1,
+              "net_pnl": 0.0004
+            },
+            "20": {
+              "trades": 2,
+              "net_pnl": 9.876499999999998
+            },
+            "22": {
+              "trades": 1,
+              "net_pnl": 24.2264
+            },
+            "23": {
+              "trades": 1,
+              "net_pnl": 32.4425
+            },
+            "0": {
+              "trades": 1,
+              "net_pnl": -62.7047
+            },
+            "1": {
+              "trades": 1,
+              "net_pnl": 7.529
+            },
+            "3": {
+              "trades": 1,
+              "net_pnl": 2.7498
+            },
+            "4": {
+              "trades": 1,
+              "net_pnl": -21.4963
+            },
+            "5": {
+              "trades": 1,
+              "net_pnl": 4.2037
+            },
+            "6": {
+              "trades": 1,
+              "net_pnl": 16.5323
+            },
+            "8": {
+              "trades": 1,
+              "net_pnl": 5.7238
+            },
+            "9": {
+              "trades": 1,
+              "net_pnl": -0.1003
+            },
+            "10": {
+              "trades": 1,
+              "net_pnl": 0.3613
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": 1.8917
+            },
+            "12": {
+              "trades": 1,
+              "net_pnl": 500.3444
+            },
+            "15": {
+              "trades": 1,
+              "net_pnl": 28.4659
+            }
+          },
+          "by_tag": {
+            "win": {
+              "trades": 20,
+              "net_pnl": 1296.5397
+            },
+            "intraday": {
+              "trades": 15,
+              "net_pnl": 831.7539999999999
+            },
+            "scalp": {
+              "trades": 10,
+              "net_pnl": 133.8543
+            },
+            "loss": {
+              "trades": 5,
+              "net_pnl": -330.9314
+            }
+          }
+        }
+      },
+      "duration_ms": 2.147,
+      "caller": "function"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.314259+00:00",
+      "kind": "MCP: tools/call analyze_journal json",
+      "request": {
+        "method": "stdio JSON-RPC",
+        "server": "python -m joulyzer.agent --mcp",
+        "payload": {
+          "jsonrpc": "2.0",
+          "id": 1004,
+          "method": "tools/call",
+          "params": {
+            "name": "analyze_journal",
+            "arguments": {
+              "csv_path": "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_small.csv",
+              "format": "json"
+            }
+          }
+        },
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_small.csv",
+        "format": "json"
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 25,
+          "win_count": 20,
+          "loss_count": 5,
+          "open_count": 0,
+          "win_rate": 0.8,
+          "net_pnl": 965.6083000000002,
+          "gross_profit": 1296.5397,
+          "gross_loss": 330.9314,
+          "profit_factor": 3.9178503460233753,
+          "avg_win": 64.826985,
+          "avg_loss": -66.18628,
+          "expectancy": 38.624332,
+          "max_drawdown": 246.6259,
+          "avg_hold_minutes": 41.73533333333333,
+          "best_trade": 567.2185,
+          "worst_trade": -246.6259,
+          "by_symbol": [
+            {
+              "symbol": "BTCUSDT",
+              "trades": 3,
+              "wins": 2,
+              "losses": 1,
+              "net_pnl": 820.9369999999999,
+              "win_rate": 0.6666666666666666
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 14,
+              "wins": 12,
+              "losses": 2,
+              "net_pnl": 136.9734,
+              "win_rate": 0.8571428571428571
+            },
+            {
+              "symbol": "SOLUSDT",
+              "trades": 4,
+              "wins": 4,
+              "losses": 0,
+              "net_pnl": 7.7825999999999995,
+              "win_rate": 1.0
+            },
+            {
+              "symbol": "DOGEUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": -0.0037999999999999996,
+              "win_rate": 0.5
+            },
+            {
+              "symbol": "XRPUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": -0.0809,
+              "win_rate": 0.5
+            }
+          ],
+          "by_hour": {
+            "13": {
+              "trades": 2,
+              "net_pnl": 73.7288
+            },
+            "14": {
+              "trades": 3,
+              "net_pnl": -243.82670000000002
+            },
+            "16": {
+              "trades": 1,
+              "net_pnl": 567.2185
+            },
+            "17": {
+              "trades": 1,
+              "net_pnl": 16.0338
+            },
+            "18": {
+              "trades": 1,
+              "net_pnl": 2.4075
+            },
+            "19": {
+              "trades": 1,
+              "net_pnl": 0.0004
+            },
+            "20": {
+              "trades": 2,
+              "net_pnl": 9.876499999999998
+            },
+            "22": {
+              "trades": 1,
+              "net_pnl": 24.2264
+            },
+            "23": {
+              "trades": 1,
+              "net_pnl": 32.4425
+            },
+            "0": {
+              "trades": 1,
+              "net_pnl": -62.7047
+            },
+            "1": {
+              "trades": 1,
+              "net_pnl": 7.529
+            },
+            "3": {
+              "trades": 1,
+              "net_pnl": 2.7498
+            },
+            "4": {
+              "trades": 1,
+              "net_pnl": -21.4963
+            },
+            "5": {
+              "trades": 1,
+              "net_pnl": 4.2037
+            },
+            "6": {
+              "trades": 1,
+              "net_pnl": 16.5323
+            },
+            "8": {
+              "trades": 1,
+              "net_pnl": 5.7238
+            },
+            "9": {
+              "trades": 1,
+              "net_pnl": -0.1003
+            },
+            "10": {
+              "trades": 1,
+              "net_pnl": 0.3613
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": 1.8917
+            },
+            "12": {
+              "trades": 1,
+              "net_pnl": 500.3444
+            },
+            "15": {
+              "trades": 1,
+              "net_pnl": 28.4659
+            }
+          },
+          "by_tag": {
+            "win": {
+              "trades": 20,
+              "net_pnl": 1296.5397
+            },
+            "intraday": {
+              "trades": 15,
+              "net_pnl": 831.7539999999999
+            },
+            "scalp": {
+              "trades": 10,
+              "net_pnl": 133.8543
+            },
+            "loss": {
+              "trades": 5,
+              "net_pnl": -330.9314
+            }
+          }
+        }
+      },
+      "duration_ms": 2.336,
+      "caller": "mcp"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.316704+00:00",
+      "kind": "CLI: analyze_journal dict",
+      "request": {
+        "method": "subprocess.run",
+        "cmd": [
+          "/usr/bin/python",
+          "-m",
+          "joulyzer",
+          "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_small.csv"
+        ],
+        "cwd": ".",
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_small.csv",
+        "format": "dict"
+      },
+      "response": {
+        "status": "ok",
+        "returncode": 0,
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 25   Wins: 20   Losses: 5   Open: 0\nWin rate:        80.0%\nNet PnL:         965.61\nGross profit:    1,296.54   Gross loss: 330.93\nProfit factor:   3.92\nAvg win:         64.83   Avg loss: -66.19\nExpectancy:      38.62 per trade\nMax drawdown:    246.63\nAvg hold (min):  41.7\nBest trade:      567.22   Worst: -246.63\n\n--- By symbol ---\n  BTCUSDT    trades=3    wins=2    losses=1    WR= 66.7%  net=820.94\n  ETHUSDT    trades=14   wins=12   losses=2    WR= 85.7%  net=136.97\n  SOLUSDT    trades=4    wins=4    losses=0    WR=100.0%  net=7.78\n  DOGEUSDT   trades=2    wins=1    losses=1    WR= 50.0%  net=-0.00\n  XRPUSDT    trades=2    wins=1    losses=1    WR= 50.0%  net=-0.08\n\n--- By hour (entry) ---\n  00:00  trades=1    net=-62.70\n  01:00  trades=1    net=7.53\n  03:00  trades=1    net=2.75\n  04:00  trades=1    net=-21.50\n  05:00  trades=1    net=4.20\n  06:00  trades=1    net=16.53\n  08:00  trades=1    net=5.72\n  09:00  trades=1    net=-0.10\n  10:00  trades=1    net=0.36\n  11:00  trades=1    net=1.89\n  12:00  trades=1    net=500.34\n  13:00  trades=2    net=73.73\n  14:00  trades=3    net=-243.83\n  15:00  trades=1    net=28.47\n  16:00  trades=1    net=567.22\n  17:00  trades=1    net=16.03\n  18:00  trades=1    net=2.41\n  19:00  trades=1    net=0.00\n  20:00  trades=2    net=9.88\n  22:00  trades=1    net=24.23\n  23:00  trades=1    net=32.44\n\n--- By tag ---\n  win            trades=20   net=1,296.54\n  intraday       trades=15   net=831.75\n  scalp          trades=10   net=133.85\n  loss           trades=5    net=-330.93\n=================================================\n"
+      },
+      "duration_ms": 72.89,
+      "caller": "cli"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.389793+00:00",
+      "kind": "function: analyze_journal dict",
+      "request": {
+        "module": "joulyzer",
+        "fn": "analyze_journal",
+        "args": {
+          "csv_path": "verifiable_usage_records/live_usage_inputs/generated_small.csv",
+          "format": "dict"
+        }
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 25,
+          "win_count": 20,
+          "loss_count": 5,
+          "open_count": 0,
+          "win_rate": 0.8,
+          "net_pnl": 965.6083000000002,
+          "gross_profit": 1296.5397,
+          "gross_loss": 330.9314,
+          "profit_factor": 3.9178503460233753,
+          "avg_win": 64.826985,
+          "avg_loss": -66.18628,
+          "expectancy": 38.624332,
+          "max_drawdown": 246.6259,
+          "avg_hold_minutes": 41.73533333333333,
+          "best_trade": 567.2185,
+          "worst_trade": -246.6259,
+          "by_symbol": [
+            {
+              "symbol": "BTCUSDT",
+              "trades": 3,
+              "wins": 2,
+              "losses": 1,
+              "net_pnl": 820.9369999999999,
+              "win_rate": 0.6666666666666666
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 14,
+              "wins": 12,
+              "losses": 2,
+              "net_pnl": 136.9734,
+              "win_rate": 0.8571428571428571
+            },
+            {
+              "symbol": "SOLUSDT",
+              "trades": 4,
+              "wins": 4,
+              "losses": 0,
+              "net_pnl": 7.7825999999999995,
+              "win_rate": 1.0
+            },
+            {
+              "symbol": "DOGEUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": -0.0037999999999999996,
+              "win_rate": 0.5
+            },
+            {
+              "symbol": "XRPUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": -0.0809,
+              "win_rate": 0.5
+            }
+          ],
+          "by_hour": {
+            "13": {
+              "trades": 2,
+              "net_pnl": 73.7288
+            },
+            "14": {
+              "trades": 3,
+              "net_pnl": -243.82670000000002
+            },
+            "16": {
+              "trades": 1,
+              "net_pnl": 567.2185
+            },
+            "17": {
+              "trades": 1,
+              "net_pnl": 16.0338
+            },
+            "18": {
+              "trades": 1,
+              "net_pnl": 2.4075
+            },
+            "19": {
+              "trades": 1,
+              "net_pnl": 0.0004
+            },
+            "20": {
+              "trades": 2,
+              "net_pnl": 9.876499999999998
+            },
+            "22": {
+              "trades": 1,
+              "net_pnl": 24.2264
+            },
+            "23": {
+              "trades": 1,
+              "net_pnl": 32.4425
+            },
+            "0": {
+              "trades": 1,
+              "net_pnl": -62.7047
+            },
+            "1": {
+              "trades": 1,
+              "net_pnl": 7.529
+            },
+            "3": {
+              "trades": 1,
+              "net_pnl": 2.7498
+            },
+            "4": {
+              "trades": 1,
+              "net_pnl": -21.4963
+            },
+            "5": {
+              "trades": 1,
+              "net_pnl": 4.2037
+            },
+            "6": {
+              "trades": 1,
+              "net_pnl": 16.5323
+            },
+            "8": {
+              "trades": 1,
+              "net_pnl": 5.7238
+            },
+            "9": {
+              "trades": 1,
+              "net_pnl": -0.1003
+            },
+            "10": {
+              "trades": 1,
+              "net_pnl": 0.3613
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": 1.8917
+            },
+            "12": {
+              "trades": 1,
+              "net_pnl": 500.3444
+            },
+            "15": {
+              "trades": 1,
+              "net_pnl": 28.4659
+            }
+          },
+          "by_tag": {
+            "win": {
+              "trades": 20,
+              "net_pnl": 1296.5397
+            },
+            "intraday": {
+              "trades": 15,
+              "net_pnl": 831.7539999999999
+            },
+            "scalp": {
+              "trades": 10,
+              "net_pnl": 133.8543
+            },
+            "loss": {
+              "trades": 5,
+              "net_pnl": -330.9314
+            }
+          }
+        }
+      },
+      "duration_ms": 1.961,
+      "caller": "function"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.391815+00:00",
+      "kind": "MCP: tools/call analyze_journal dict",
+      "request": {
+        "method": "stdio JSON-RPC",
+        "server": "python -m joulyzer.agent --mcp",
+        "payload": {
+          "jsonrpc": "2.0",
+          "id": 1005,
+          "method": "tools/call",
+          "params": {
+            "name": "analyze_journal",
+            "arguments": {
+              "csv_path": "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_small.csv",
+              "format": "dict"
+            }
+          }
+        },
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_small.csv",
+        "format": "dict"
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 25,
+          "win_count": 20,
+          "loss_count": 5,
+          "open_count": 0,
+          "win_rate": 0.8,
+          "net_pnl": 965.6083000000002,
+          "gross_profit": 1296.5397,
+          "gross_loss": 330.9314,
+          "profit_factor": 3.9178503460233753,
+          "avg_win": 64.826985,
+          "avg_loss": -66.18628,
+          "expectancy": 38.624332,
+          "max_drawdown": 246.6259,
+          "avg_hold_minutes": 41.73533333333333,
+          "best_trade": 567.2185,
+          "worst_trade": -246.6259,
+          "by_symbol": [
+            {
+              "symbol": "BTCUSDT",
+              "trades": 3,
+              "wins": 2,
+              "losses": 1,
+              "net_pnl": 820.9369999999999,
+              "win_rate": 0.6666666666666666
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 14,
+              "wins": 12,
+              "losses": 2,
+              "net_pnl": 136.9734,
+              "win_rate": 0.8571428571428571
+            },
+            {
+              "symbol": "SOLUSDT",
+              "trades": 4,
+              "wins": 4,
+              "losses": 0,
+              "net_pnl": 7.7825999999999995,
+              "win_rate": 1.0
+            },
+            {
+              "symbol": "DOGEUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": -0.0037999999999999996,
+              "win_rate": 0.5
+            },
+            {
+              "symbol": "XRPUSDT",
+              "trades": 2,
+              "wins": 1,
+              "losses": 1,
+              "net_pnl": -0.0809,
+              "win_rate": 0.5
+            }
+          ],
+          "by_hour": {
+            "13": {
+              "trades": 2,
+              "net_pnl": 73.7288
+            },
+            "14": {
+              "trades": 3,
+              "net_pnl": -243.82670000000002
+            },
+            "16": {
+              "trades": 1,
+              "net_pnl": 567.2185
+            },
+            "17": {
+              "trades": 1,
+              "net_pnl": 16.0338
+            },
+            "18": {
+              "trades": 1,
+              "net_pnl": 2.4075
+            },
+            "19": {
+              "trades": 1,
+              "net_pnl": 0.0004
+            },
+            "20": {
+              "trades": 2,
+              "net_pnl": 9.876499999999998
+            },
+            "22": {
+              "trades": 1,
+              "net_pnl": 24.2264
+            },
+            "23": {
+              "trades": 1,
+              "net_pnl": 32.4425
+            },
+            "0": {
+              "trades": 1,
+              "net_pnl": -62.7047
+            },
+            "1": {
+              "trades": 1,
+              "net_pnl": 7.529
+            },
+            "3": {
+              "trades": 1,
+              "net_pnl": 2.7498
+            },
+            "4": {
+              "trades": 1,
+              "net_pnl": -21.4963
+            },
+            "5": {
+              "trades": 1,
+              "net_pnl": 4.2037
+            },
+            "6": {
+              "trades": 1,
+              "net_pnl": 16.5323
+            },
+            "8": {
+              "trades": 1,
+              "net_pnl": 5.7238
+            },
+            "9": {
+              "trades": 1,
+              "net_pnl": -0.1003
+            },
+            "10": {
+              "trades": 1,
+              "net_pnl": 0.3613
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": 1.8917
+            },
+            "12": {
+              "trades": 1,
+              "net_pnl": 500.3444
+            },
+            "15": {
+              "trades": 1,
+              "net_pnl": 28.4659
+            }
+          },
+          "by_tag": {
+            "win": {
+              "trades": 20,
+              "net_pnl": 1296.5397
+            },
+            "intraday": {
+              "trades": 15,
+              "net_pnl": 831.7539999999999
+            },
+            "scalp": {
+              "trades": 10,
+              "net_pnl": 133.8543
+            },
+            "loss": {
+              "trades": 5,
+              "net_pnl": -330.9314
+            }
+          }
+        }
+      },
+      "duration_ms": 2.209,
+      "caller": "mcp"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.394159+00:00",
+      "kind": "CLI: analyze_journal text",
+      "request": {
+        "method": "subprocess.run",
+        "cmd": [
+          "/usr/bin/python",
+          "-m",
+          "joulyzer",
+          "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_medium.csv"
+        ],
+        "cwd": ".",
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+        "format": "text"
+      },
+      "response": {
+        "status": "ok",
+        "returncode": 0,
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 80   Wins: 34   Losses: 46   Open: 0\nWin rate:        42.5%\nNet PnL:         -6,072.90\nGross profit:    9,171.01   Gross loss: 15,243.91\nProfit factor:   0.60\nAvg win:         269.74   Avg loss: -331.39\nExpectancy:      -75.91 per trade\nMax drawdown:    13,594.44\nAvg hold (min):  46.9\nBest trade:      3,573.56   Worst: -2,457.95\n\n--- By symbol ---\n  SOLUSDT    trades=20   wins=11   losses=9    WR= 55.0%  net=4.24\n  DOGEUSDT   trades=14   wins=3    losses=11   WR= 21.4%  net=-0.03\n  XRPUSDT    trades=15   wins=5    losses=10   WR= 33.3%  net=-0.22\n  ETHUSDT    trades=12   wins=4    losses=8    WR= 33.3%  net=-187.08\n  BTCUSDT    trades=19   wins=11   losses=8    WR= 57.9%  net=-5,889.82\n\n--- By hour (entry) ---\n  00:00  trades=5    net=510.94\n  01:00  trades=2    net=-24.69\n  02:00  trades=3    net=-4,572.77\n  03:00  trades=5    net=-4,650.40\n  04:00  trades=5    net=-937.57\n  05:00  trades=5    net=-33.79\n  06:00  trades=5    net=1,452.77\n  07:00  trades=1    net=3,573.56\n  08:00  trades=2    net=-13.42\n  09:00  trades=4    net=3.79\n  10:00  trades=4    net=5.49\n  11:00  trades=1    net=16.31\n  12:00  trades=4    net=-3,758.26\n  13:00  trades=2    net=-1.33\n  14:00  trades=3    net=-1,116.41\n  15:00  trades=4    net=29.37\n  16:00  trades=1    net=-1.22\n  17:00  trades=4    net=149.06\n  18:00  trades=5    net=1,982.84\n  19:00  trades=4    net=-16.42\n  20:00  trades=3    net=791.67\n  21:00  trades=2    net=537.65\n  22:00  trades=3    net=-0.02\n  23:00  trades=3    net=-0.05\n\n--- By tag ---\n  win            trades=34   net=9,171.01\n  scalp          trades=27   net=-2,612.68\n  intraday       trades=53   net=-3,460.23\n  loss           trades=46   net=-15,243.91\n=================================================\n"
+      },
+      "duration_ms": 81.746,
+      "caller": "cli"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.476170+00:00",
+      "kind": "function: analyze_journal text",
+      "request": {
+        "module": "joulyzer",
+        "fn": "analyze_journal",
+        "args": {
+          "csv_path": "verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+          "format": "text"
+        }
+      },
+      "response": {
+        "status": "ok",
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 80   Wins: 34   Losses: 46   Open: 0\nWin rate:        42.5%\nNet PnL:         -6,072.90\nGross profit:    9,171.01   Gross loss: 15,243.91\nProfit factor:   0.60\nAvg win:         269.74   Avg loss: -331.39\nExpectancy:      -75.91 per trade\nMax drawdown:    13,594.44\nAvg hold (min):  46.9\nBest trade:      3,573.56   Worst: -2,457.95\n\n--- By symbol ---\n  SOLUSDT    trades=20   wins=11   losses=9    WR= 55.0%  net=4.24\n  DOGEUSDT   trades=14   wins=3    losses=11   WR= 21.4%  net=-0.03\n  XRPUSDT    trades=15   wins=5    losses=10   WR= 33.3%  net=-0.22\n  ETHUSDT    trades=12   wins=4    losses=8    WR= 33.3%  net=-187.08\n  BTCUSDT    trades=19   wins=11   losses=8    WR= 57.9%  net=-5,889.82\n\n--- By hour (entry) ---\n  00:00  trades=5    net=510.94\n  01:00  trades=2    net=-24.69\n  02:00  trades=3    net=-4,572.77\n  03:00  trades=5    net=-4,650.40\n  04:00  trades=5    net=-937.57\n  05:00  trades=5    net=-33.79\n  06:00  trades=5    net=1,452.77\n  07:00  trades=1    net=3,573.56\n  08:00  trades=2    net=-13.42\n  09:00  trades=4    net=3.79\n  10:00  trades=4    net=5.49\n  11:00  trades=1    net=16.31\n  12:00  trades=4    net=-3,758.26\n  13:00  trades=2    net=-1.33\n  14:00  trades=3    net=-1,116.41\n  15:00  trades=4    net=29.37\n  16:00  trades=1    net=-1.22\n  17:00  trades=4    net=149.06\n  18:00  trades=5    net=1,982.84\n  19:00  trades=4    net=-16.42\n  20:00  trades=3    net=791.67\n  21:00  trades=2    net=537.65\n  22:00  trades=3    net=-0.02\n  23:00  trades=3    net=-0.05\n\n--- By tag ---\n  win            trades=34   net=9,171.01\n  scalp          trades=27   net=-2,612.68\n  intraday       trades=53   net=-3,460.23\n  loss           trades=46   net=-15,243.91\n================================================="
+      },
+      "duration_ms": 5.584,
+      "caller": "function"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.481899+00:00",
+      "kind": "MCP: tools/call analyze_journal text",
+      "request": {
+        "method": "stdio JSON-RPC",
+        "server": "python -m joulyzer.agent --mcp",
+        "payload": {
+          "jsonrpc": "2.0",
+          "id": 1006,
+          "method": "tools/call",
+          "params": {
+            "name": "analyze_journal",
+            "arguments": {
+              "csv_path": "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+              "format": "text"
+            }
+          }
+        },
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+        "format": "text"
+      },
+      "response": {
+        "status": "ok",
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 80   Wins: 34   Losses: 46   Open: 0\nWin rate:        42.5%\nNet PnL:         -6,072.90\nGross profit:    9,171.01   Gross loss: 15,243.91\nProfit factor:   0.60\nAvg win:         269.74   Avg loss: -331.39\nExpectancy:      -75.91 per trade\nMax drawdown:    13,594.44\nAvg hold (min):  46.9\nBest trade:      3,573.56   Worst: -2,457.95\n\n--- By symbol ---\n  SOLUSDT    trades=20   wins=11   losses=9    WR= 55.0%  net=4.24\n  DOGEUSDT   trades=14   wins=3    losses=11   WR= 21.4%  net=-0.03\n  XRPUSDT    trades=15   wins=5    losses=10   WR= 33.3%  net=-0.22\n  ETHUSDT    trades=12   wins=4    losses=8    WR= 33.3%  net=-187.08\n  BTCUSDT    trades=19   wins=11   losses=8    WR= 57.9%  net=-5,889.82\n\n--- By hour (entry) ---\n  00:00  trades=5    net=510.94\n  01:00  trades=2    net=-24.69\n  02:00  trades=3    net=-4,572.77\n  03:00  trades=5    net=-4,650.40\n  04:00  trades=5    net=-937.57\n  05:00  trades=5    net=-33.79\n  06:00  trades=5    net=1,452.77\n  07:00  trades=1    net=3,573.56\n  08:00  trades=2    net=-13.42\n  09:00  trades=4    net=3.79\n  10:00  trades=4    net=5.49\n  11:00  trades=1    net=16.31\n  12:00  trades=4    net=-3,758.26\n  13:00  trades=2    net=-1.33\n  14:00  trades=3    net=-1,116.41\n  15:00  trades=4    net=29.37\n  16:00  trades=1    net=-1.22\n  17:00  trades=4    net=149.06\n  18:00  trades=5    net=1,982.84\n  19:00  trades=4    net=-16.42\n  20:00  trades=3    net=791.67\n  21:00  trades=2    net=537.65\n  22:00  trades=3    net=-0.02\n  23:00  trades=3    net=-0.05\n\n--- By tag ---\n  win            trades=34   net=9,171.01\n  scalp          trades=27   net=-2,612.68\n  intraday       trades=53   net=-3,460.23\n  loss           trades=46   net=-15,243.91\n================================================="
+      },
+      "duration_ms": 10.102,
+      "caller": "mcp"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.492390+00:00",
+      "kind": "CLI: analyze_journal json",
+      "request": {
+        "method": "subprocess.run",
+        "cmd": [
+          "/usr/bin/python",
+          "-m",
+          "joulyzer",
+          "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+          "--json"
+        ],
+        "cwd": ".",
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+        "format": "json"
+      },
+      "response": {
+        "status": "ok",
+        "returncode": 0,
+        "body": {
+          "trade_count": 80,
+          "win_count": 34,
+          "loss_count": 46,
+          "open_count": 0,
+          "win_rate": 0.425,
+          "net_pnl": -6072.904500000006,
+          "gross_profit": 9171.006999999998,
+          "gross_loss": 15243.9115,
+          "profit_factor": 0.601617701598438,
+          "avg_win": 269.7355,
+          "avg_loss": -331.3893804347826,
+          "expectancy": -75.91130625,
+          "max_drawdown": 13594.443700000003,
+          "avg_hold_minutes": 46.948125,
+          "best_trade": 3573.5636,
+          "worst_trade": -2457.9507,
+          "by_symbol": [
+            {
+              "symbol": "SOLUSDT",
+              "trades": 20,
+              "wins": 11,
+              "losses": 9,
+              "net_pnl": 4.240499999999999,
+              "win_rate": 0.55
+            },
+            {
+              "symbol": "DOGEUSDT",
+              "trades": 14,
+              "wins": 3,
+              "losses": 11,
+              "net_pnl": -0.0275,
+              "win_rate": 0.21428571428571427
+            },
+            {
+              "symbol": "XRPUSDT",
+              "trades": 15,
+              "wins": 5,
+              "losses": 10,
+              "net_pnl": -0.21829999999999997,
+              "win_rate": 0.3333333333333333
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 12,
+              "wins": 4,
+              "losses": 8,
+              "net_pnl": -187.0757,
+              "win_rate": 0.3333333333333333
+            },
+            {
+              "symbol": "BTCUSDT",
+              "trades": 19,
+              "wins": 11,
+              "losses": 8,
+              "net_pnl": -5889.823500000001,
+              "win_rate": 0.5789473684210527
+            }
+          ],
+          "by_hour": {
+            "13": {
+              "trades": 2,
+              "net_pnl": -1.3327
+            },
+            "14": {
+              "trades": 3,
+              "net_pnl": -1116.4125
+            },
+            "15": {
+              "trades": 4,
+              "net_pnl": 29.3719
+            },
+            "17": {
+              "trades": 4,
+              "net_pnl": 149.0579
+            },
+            "18": {
+              "trades": 5,
+              "net_pnl": 1982.8449999999998
+            },
+            "19": {
+              "trades": 4,
+              "net_pnl": -16.4236
+            },
+            "20": {
+              "trades": 3,
+              "net_pnl": 791.6660999999999
+            },
+            "22": {
+              "trades": 3,
+              "net_pnl": -0.023600000000000003
+            },
+            "23": {
+              "trades": 3,
+              "net_pnl": -0.054400000000000004
+            },
+            "0": {
+              "trades": 5,
+              "net_pnl": 510.94489999999996
+            },
+            "2": {
+              "trades": 3,
+              "net_pnl": -4572.766600000001
+            },
+            "3": {
+              "trades": 5,
+              "net_pnl": -4650.3997
+            },
+            "4": {
+              "trades": 5,
+              "net_pnl": -937.5687
+            },
+            "5": {
+              "trades": 5,
+              "net_pnl": -33.793600000000005
+            },
+            "6": {
+              "trades": 5,
+              "net_pnl": 1452.7716
+            },
+            "10": {
+              "trades": 4,
+              "net_pnl": 5.491
+            },
+            "12": {
+              "trades": 4,
+              "net_pnl": -3758.2589000000003
+            },
+            "8": {
+              "trades": 2,
+              "net_pnl": -13.4213
+            },
+            "9": {
+              "trades": 4,
+              "net_pnl": 3.7906999999999997
+            },
+            "21": {
+              "trades": 2,
+              "net_pnl": 537.6507
+            },
+            "1": {
+              "trades": 2,
+              "net_pnl": -24.6935
+            },
+            "7": {
+              "trades": 1,
+              "net_pnl": 3573.5636
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": 16.3085
+            },
+            "16": {
+              "trades": 1,
+              "net_pnl": -1.2173
+            }
+          },
+          "by_tag": {
+            "loss": {
+              "trades": 46,
+              "net_pnl": -15243.9115
+            },
+            "scalp": {
+              "trades": 27,
+              "net_pnl": -2612.6794999999997
+            },
+            "win": {
+              "trades": 34,
+              "net_pnl": 9171.006999999998
+            },
+            "intraday": {
+              "trades": 53,
+              "net_pnl": -3460.2250000000017
+            }
+          }
+        }
+      },
+      "duration_ms": 82.408,
+      "caller": "cli"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.574960+00:00",
+      "kind": "function: analyze_journal json",
+      "request": {
+        "module": "joulyzer",
+        "fn": "analyze_journal",
+        "args": {
+          "csv_path": "verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+          "format": "json"
+        }
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 80,
+          "win_count": 34,
+          "loss_count": 46,
+          "open_count": 0,
+          "win_rate": 0.425,
+          "net_pnl": -6072.904500000006,
+          "gross_profit": 9171.006999999998,
+          "gross_loss": 15243.9115,
+          "profit_factor": 0.601617701598438,
+          "avg_win": 269.7355,
+          "avg_loss": -331.3893804347826,
+          "expectancy": -75.91130625,
+          "max_drawdown": 13594.443700000003,
+          "avg_hold_minutes": 46.948125,
+          "best_trade": 3573.5636,
+          "worst_trade": -2457.9507,
+          "by_symbol": [
+            {
+              "symbol": "SOLUSDT",
+              "trades": 20,
+              "wins": 11,
+              "losses": 9,
+              "net_pnl": 4.240499999999999,
+              "win_rate": 0.55
+            },
+            {
+              "symbol": "DOGEUSDT",
+              "trades": 14,
+              "wins": 3,
+              "losses": 11,
+              "net_pnl": -0.0275,
+              "win_rate": 0.21428571428571427
+            },
+            {
+              "symbol": "XRPUSDT",
+              "trades": 15,
+              "wins": 5,
+              "losses": 10,
+              "net_pnl": -0.21829999999999997,
+              "win_rate": 0.3333333333333333
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 12,
+              "wins": 4,
+              "losses": 8,
+              "net_pnl": -187.0757,
+              "win_rate": 0.3333333333333333
+            },
+            {
+              "symbol": "BTCUSDT",
+              "trades": 19,
+              "wins": 11,
+              "losses": 8,
+              "net_pnl": -5889.823500000001,
+              "win_rate": 0.5789473684210527
+            }
+          ],
+          "by_hour": {
+            "13": {
+              "trades": 2,
+              "net_pnl": -1.3327
+            },
+            "14": {
+              "trades": 3,
+              "net_pnl": -1116.4125
+            },
+            "15": {
+              "trades": 4,
+              "net_pnl": 29.3719
+            },
+            "17": {
+              "trades": 4,
+              "net_pnl": 149.0579
+            },
+            "18": {
+              "trades": 5,
+              "net_pnl": 1982.8449999999998
+            },
+            "19": {
+              "trades": 4,
+              "net_pnl": -16.4236
+            },
+            "20": {
+              "trades": 3,
+              "net_pnl": 791.6660999999999
+            },
+            "22": {
+              "trades": 3,
+              "net_pnl": -0.023600000000000003
+            },
+            "23": {
+              "trades": 3,
+              "net_pnl": -0.054400000000000004
+            },
+            "0": {
+              "trades": 5,
+              "net_pnl": 510.94489999999996
+            },
+            "2": {
+              "trades": 3,
+              "net_pnl": -4572.766600000001
+            },
+            "3": {
+              "trades": 5,
+              "net_pnl": -4650.3997
+            },
+            "4": {
+              "trades": 5,
+              "net_pnl": -937.5687
+            },
+            "5": {
+              "trades": 5,
+              "net_pnl": -33.793600000000005
+            },
+            "6": {
+              "trades": 5,
+              "net_pnl": 1452.7716
+            },
+            "10": {
+              "trades": 4,
+              "net_pnl": 5.491
+            },
+            "12": {
+              "trades": 4,
+              "net_pnl": -3758.2589000000003
+            },
+            "8": {
+              "trades": 2,
+              "net_pnl": -13.4213
+            },
+            "9": {
+              "trades": 4,
+              "net_pnl": 3.7906999999999997
+            },
+            "21": {
+              "trades": 2,
+              "net_pnl": 537.6507
+            },
+            "1": {
+              "trades": 2,
+              "net_pnl": -24.6935
+            },
+            "7": {
+              "trades": 1,
+              "net_pnl": 3573.5636
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": 16.3085
+            },
+            "16": {
+              "trades": 1,
+              "net_pnl": -1.2173
+            }
+          },
+          "by_tag": {
+            "loss": {
+              "trades": 46,
+              "net_pnl": -15243.9115
+            },
+            "scalp": {
+              "trades": 27,
+              "net_pnl": -2612.6794999999997
+            },
+            "win": {
+              "trades": 34,
+              "net_pnl": 9171.006999999998
+            },
+            "intraday": {
+              "trades": 53,
+              "net_pnl": -3460.2250000000017
+            }
+          }
+        }
+      },
+      "duration_ms": 3.792,
+      "caller": "function"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.578871+00:00",
+      "kind": "MCP: tools/call analyze_journal json",
+      "request": {
+        "method": "stdio JSON-RPC",
+        "server": "python -m joulyzer.agent --mcp",
+        "payload": {
+          "jsonrpc": "2.0",
+          "id": 1007,
+          "method": "tools/call",
+          "params": {
+            "name": "analyze_journal",
+            "arguments": {
+              "csv_path": "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+              "format": "json"
+            }
+          }
+        },
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+        "format": "json"
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 80,
+          "win_count": 34,
+          "loss_count": 46,
+          "open_count": 0,
+          "win_rate": 0.425,
+          "net_pnl": -6072.904500000006,
+          "gross_profit": 9171.006999999998,
+          "gross_loss": 15243.9115,
+          "profit_factor": 0.601617701598438,
+          "avg_win": 269.7355,
+          "avg_loss": -331.3893804347826,
+          "expectancy": -75.91130625,
+          "max_drawdown": 13594.443700000003,
+          "avg_hold_minutes": 46.948125,
+          "best_trade": 3573.5636,
+          "worst_trade": -2457.9507,
+          "by_symbol": [
+            {
+              "symbol": "SOLUSDT",
+              "trades": 20,
+              "wins": 11,
+              "losses": 9,
+              "net_pnl": 4.240499999999999,
+              "win_rate": 0.55
+            },
+            {
+              "symbol": "DOGEUSDT",
+              "trades": 14,
+              "wins": 3,
+              "losses": 11,
+              "net_pnl": -0.0275,
+              "win_rate": 0.21428571428571427
+            },
+            {
+              "symbol": "XRPUSDT",
+              "trades": 15,
+              "wins": 5,
+              "losses": 10,
+              "net_pnl": -0.21829999999999997,
+              "win_rate": 0.3333333333333333
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 12,
+              "wins": 4,
+              "losses": 8,
+              "net_pnl": -187.0757,
+              "win_rate": 0.3333333333333333
+            },
+            {
+              "symbol": "BTCUSDT",
+              "trades": 19,
+              "wins": 11,
+              "losses": 8,
+              "net_pnl": -5889.823500000001,
+              "win_rate": 0.5789473684210527
+            }
+          ],
+          "by_hour": {
+            "13": {
+              "trades": 2,
+              "net_pnl": -1.3327
+            },
+            "14": {
+              "trades": 3,
+              "net_pnl": -1116.4125
+            },
+            "15": {
+              "trades": 4,
+              "net_pnl": 29.3719
+            },
+            "17": {
+              "trades": 4,
+              "net_pnl": 149.0579
+            },
+            "18": {
+              "trades": 5,
+              "net_pnl": 1982.8449999999998
+            },
+            "19": {
+              "trades": 4,
+              "net_pnl": -16.4236
+            },
+            "20": {
+              "trades": 3,
+              "net_pnl": 791.6660999999999
+            },
+            "22": {
+              "trades": 3,
+              "net_pnl": -0.023600000000000003
+            },
+            "23": {
+              "trades": 3,
+              "net_pnl": -0.054400000000000004
+            },
+            "0": {
+              "trades": 5,
+              "net_pnl": 510.94489999999996
+            },
+            "2": {
+              "trades": 3,
+              "net_pnl": -4572.766600000001
+            },
+            "3": {
+              "trades": 5,
+              "net_pnl": -4650.3997
+            },
+            "4": {
+              "trades": 5,
+              "net_pnl": -937.5687
+            },
+            "5": {
+              "trades": 5,
+              "net_pnl": -33.793600000000005
+            },
+            "6": {
+              "trades": 5,
+              "net_pnl": 1452.7716
+            },
+            "10": {
+              "trades": 4,
+              "net_pnl": 5.491
+            },
+            "12": {
+              "trades": 4,
+              "net_pnl": -3758.2589000000003
+            },
+            "8": {
+              "trades": 2,
+              "net_pnl": -13.4213
+            },
+            "9": {
+              "trades": 4,
+              "net_pnl": 3.7906999999999997
+            },
+            "21": {
+              "trades": 2,
+              "net_pnl": 537.6507
+            },
+            "1": {
+              "trades": 2,
+              "net_pnl": -24.6935
+            },
+            "7": {
+              "trades": 1,
+              "net_pnl": 3573.5636
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": 16.3085
+            },
+            "16": {
+              "trades": 1,
+              "net_pnl": -1.2173
+            }
+          },
+          "by_tag": {
+            "loss": {
+              "trades": 46,
+              "net_pnl": -15243.9115
+            },
+            "scalp": {
+              "trades": 27,
+              "net_pnl": -2612.6794999999997
+            },
+            "win": {
+              "trades": 34,
+              "net_pnl": 9171.006999999998
+            },
+            "intraday": {
+              "trades": 53,
+              "net_pnl": -3460.2250000000017
+            }
+          }
+        }
+      },
+      "duration_ms": 4.242,
+      "caller": "mcp"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.583236+00:00",
+      "kind": "CLI: analyze_journal dict",
+      "request": {
+        "method": "subprocess.run",
+        "cmd": [
+          "/usr/bin/python",
+          "-m",
+          "joulyzer",
+          "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_medium.csv"
+        ],
+        "cwd": ".",
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+        "format": "dict"
+      },
+      "response": {
+        "status": "ok",
+        "returncode": 0,
+        "body_kind": "text",
+        "body": "================ Joulyzer Report ================\nTrades (closed): 80   Wins: 34   Losses: 46   Open: 0\nWin rate:        42.5%\nNet PnL:         -6,072.90\nGross profit:    9,171.01   Gross loss: 15,243.91\nProfit factor:   0.60\nAvg win:         269.74   Avg loss: -331.39\nExpectancy:      -75.91 per trade\nMax drawdown:    13,594.44\nAvg hold (min):  46.9\nBest trade:      3,573.56   Worst: -2,457.95\n\n--- By symbol ---\n  SOLUSDT    trades=20   wins=11   losses=9    WR= 55.0%  net=4.24\n  DOGEUSDT   trades=14   wins=3    losses=11   WR= 21.4%  net=-0.03\n  XRPUSDT    trades=15   wins=5    losses=10   WR= 33.3%  net=-0.22\n  ETHUSDT    trades=12   wins=4    losses=8    WR= 33.3%  net=-187.08\n  BTCUSDT    trades=19   wins=11   losses=8    WR= 57.9%  net=-5,889.82\n\n--- By hour (entry) ---\n  00:00  trades=5    net=510.94\n  01:00  trades=2    net=-24.69\n  02:00  trades=3    net=-4,572.77\n  03:00  trades=5    net=-4,650.40\n  04:00  trades=5    net=-937.57\n  05:00  trades=5    net=-33.79\n  06:00  trades=5    net=1,452.77\n  07:00  trades=1    net=3,573.56\n  08:00  trades=2    net=-13.42\n  09:00  trades=4    net=3.79\n  10:00  trades=4    net=5.49\n  11:00  trades=1    net=16.31\n  12:00  trades=4    net=-3,758.26\n  13:00  trades=2    net=-1.33\n  14:00  trades=3    net=-1,116.41\n  15:00  trades=4    net=29.37\n  16:00  trades=1    net=-1.22\n  17:00  trades=4    net=149.06\n  18:00  trades=5    net=1,982.84\n  19:00  trades=4    net=-16.42\n  20:00  trades=3    net=791.67\n  21:00  trades=2    net=537.65\n  22:00  trades=3    net=-0.02\n  23:00  trades=3    net=-0.05\n\n--- By tag ---\n  win            trades=34   net=9,171.01\n  scalp          trades=27   net=-2,612.68\n  intraday       trades=53   net=-3,460.23\n  loss           trades=46   net=-15,243.91\n=================================================\n"
+      },
+      "duration_ms": 75.511,
+      "caller": "cli"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.658867+00:00",
+      "kind": "function: analyze_journal dict",
+      "request": {
+        "module": "joulyzer",
+        "fn": "analyze_journal",
+        "args": {
+          "csv_path": "verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+          "format": "dict"
+        }
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 80,
+          "win_count": 34,
+          "loss_count": 46,
+          "open_count": 0,
+          "win_rate": 0.425,
+          "net_pnl": -6072.904500000006,
+          "gross_profit": 9171.006999999998,
+          "gross_loss": 15243.9115,
+          "profit_factor": 0.601617701598438,
+          "avg_win": 269.7355,
+          "avg_loss": -331.3893804347826,
+          "expectancy": -75.91130625,
+          "max_drawdown": 13594.443700000003,
+          "avg_hold_minutes": 46.948125,
+          "best_trade": 3573.5636,
+          "worst_trade": -2457.9507,
+          "by_symbol": [
+            {
+              "symbol": "SOLUSDT",
+              "trades": 20,
+              "wins": 11,
+              "losses": 9,
+              "net_pnl": 4.240499999999999,
+              "win_rate": 0.55
+            },
+            {
+              "symbol": "DOGEUSDT",
+              "trades": 14,
+              "wins": 3,
+              "losses": 11,
+              "net_pnl": -0.0275,
+              "win_rate": 0.21428571428571427
+            },
+            {
+              "symbol": "XRPUSDT",
+              "trades": 15,
+              "wins": 5,
+              "losses": 10,
+              "net_pnl": -0.21829999999999997,
+              "win_rate": 0.3333333333333333
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 12,
+              "wins": 4,
+              "losses": 8,
+              "net_pnl": -187.0757,
+              "win_rate": 0.3333333333333333
+            },
+            {
+              "symbol": "BTCUSDT",
+              "trades": 19,
+              "wins": 11,
+              "losses": 8,
+              "net_pnl": -5889.823500000001,
+              "win_rate": 0.5789473684210527
+            }
+          ],
+          "by_hour": {
+            "13": {
+              "trades": 2,
+              "net_pnl": -1.3327
+            },
+            "14": {
+              "trades": 3,
+              "net_pnl": -1116.4125
+            },
+            "15": {
+              "trades": 4,
+              "net_pnl": 29.3719
+            },
+            "17": {
+              "trades": 4,
+              "net_pnl": 149.0579
+            },
+            "18": {
+              "trades": 5,
+              "net_pnl": 1982.8449999999998
+            },
+            "19": {
+              "trades": 4,
+              "net_pnl": -16.4236
+            },
+            "20": {
+              "trades": 3,
+              "net_pnl": 791.6660999999999
+            },
+            "22": {
+              "trades": 3,
+              "net_pnl": -0.023600000000000003
+            },
+            "23": {
+              "trades": 3,
+              "net_pnl": -0.054400000000000004
+            },
+            "0": {
+              "trades": 5,
+              "net_pnl": 510.94489999999996
+            },
+            "2": {
+              "trades": 3,
+              "net_pnl": -4572.766600000001
+            },
+            "3": {
+              "trades": 5,
+              "net_pnl": -4650.3997
+            },
+            "4": {
+              "trades": 5,
+              "net_pnl": -937.5687
+            },
+            "5": {
+              "trades": 5,
+              "net_pnl": -33.793600000000005
+            },
+            "6": {
+              "trades": 5,
+              "net_pnl": 1452.7716
+            },
+            "10": {
+              "trades": 4,
+              "net_pnl": 5.491
+            },
+            "12": {
+              "trades": 4,
+              "net_pnl": -3758.2589000000003
+            },
+            "8": {
+              "trades": 2,
+              "net_pnl": -13.4213
+            },
+            "9": {
+              "trades": 4,
+              "net_pnl": 3.7906999999999997
+            },
+            "21": {
+              "trades": 2,
+              "net_pnl": 537.6507
+            },
+            "1": {
+              "trades": 2,
+              "net_pnl": -24.6935
+            },
+            "7": {
+              "trades": 1,
+              "net_pnl": 3573.5636
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": 16.3085
+            },
+            "16": {
+              "trades": 1,
+              "net_pnl": -1.2173
+            }
+          },
+          "by_tag": {
+            "loss": {
+              "trades": 46,
+              "net_pnl": -15243.9115
+            },
+            "scalp": {
+              "trades": 27,
+              "net_pnl": -2612.6794999999997
+            },
+            "win": {
+              "trades": 34,
+              "net_pnl": 9171.006999999998
+            },
+            "intraday": {
+              "trades": 53,
+              "net_pnl": -3460.2250000000017
+            }
+          }
+        }
+      },
+      "duration_ms": 3.699,
+      "caller": "function"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.662634+00:00",
+      "kind": "MCP: tools/call analyze_journal dict",
+      "request": {
+        "method": "stdio JSON-RPC",
+        "server": "python -m joulyzer.agent --mcp",
+        "payload": {
+          "jsonrpc": "2.0",
+          "id": 1008,
+          "method": "tools/call",
+          "params": {
+            "name": "analyze_journal",
+            "arguments": {
+              "csv_path": "/run/csi/mount-root/nas/eab0d61a99b6696edb3d2aff87b585e8/joulyzer-inspect/verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+              "format": "dict"
+            }
+          }
+        },
+        "csv_path": "verifiable_usage_records/live_usage_inputs/generated_medium.csv",
+        "format": "dict"
+      },
+      "response": {
+        "status": "ok",
+        "body": {
+          "trade_count": 80,
+          "win_count": 34,
+          "loss_count": 46,
+          "open_count": 0,
+          "win_rate": 0.425,
+          "net_pnl": -6072.904500000006,
+          "gross_profit": 9171.006999999998,
+          "gross_loss": 15243.9115,
+          "profit_factor": 0.601617701598438,
+          "avg_win": 269.7355,
+          "avg_loss": -331.3893804347826,
+          "expectancy": -75.91130625,
+          "max_drawdown": 13594.443700000003,
+          "avg_hold_minutes": 46.948125,
+          "best_trade": 3573.5636,
+          "worst_trade": -2457.9507,
+          "by_symbol": [
+            {
+              "symbol": "SOLUSDT",
+              "trades": 20,
+              "wins": 11,
+              "losses": 9,
+              "net_pnl": 4.240499999999999,
+              "win_rate": 0.55
+            },
+            {
+              "symbol": "DOGEUSDT",
+              "trades": 14,
+              "wins": 3,
+              "losses": 11,
+              "net_pnl": -0.0275,
+              "win_rate": 0.21428571428571427
+            },
+            {
+              "symbol": "XRPUSDT",
+              "trades": 15,
+              "wins": 5,
+              "losses": 10,
+              "net_pnl": -0.21829999999999997,
+              "win_rate": 0.3333333333333333
+            },
+            {
+              "symbol": "ETHUSDT",
+              "trades": 12,
+              "wins": 4,
+              "losses": 8,
+              "net_pnl": -187.0757,
+              "win_rate": 0.3333333333333333
+            },
+            {
+              "symbol": "BTCUSDT",
+              "trades": 19,
+              "wins": 11,
+              "losses": 8,
+              "net_pnl": -5889.823500000001,
+              "win_rate": 0.5789473684210527
+            }
+          ],
+          "by_hour": {
+            "13": {
+              "trades": 2,
+              "net_pnl": -1.3327
+            },
+            "14": {
+              "trades": 3,
+              "net_pnl": -1116.4125
+            },
+            "15": {
+              "trades": 4,
+              "net_pnl": 29.3719
+            },
+            "17": {
+              "trades": 4,
+              "net_pnl": 149.0579
+            },
+            "18": {
+              "trades": 5,
+              "net_pnl": 1982.8449999999998
+            },
+            "19": {
+              "trades": 4,
+              "net_pnl": -16.4236
+            },
+            "20": {
+              "trades": 3,
+              "net_pnl": 791.6660999999999
+            },
+            "22": {
+              "trades": 3,
+              "net_pnl": -0.023600000000000003
+            },
+            "23": {
+              "trades": 3,
+              "net_pnl": -0.054400000000000004
+            },
+            "0": {
+              "trades": 5,
+              "net_pnl": 510.94489999999996
+            },
+            "2": {
+              "trades": 3,
+              "net_pnl": -4572.766600000001
+            },
+            "3": {
+              "trades": 5,
+              "net_pnl": -4650.3997
+            },
+            "4": {
+              "trades": 5,
+              "net_pnl": -937.5687
+            },
+            "5": {
+              "trades": 5,
+              "net_pnl": -33.793600000000005
+            },
+            "6": {
+              "trades": 5,
+              "net_pnl": 1452.7716
+            },
+            "10": {
+              "trades": 4,
+              "net_pnl": 5.491
+            },
+            "12": {
+              "trades": 4,
+              "net_pnl": -3758.2589000000003
+            },
+            "8": {
+              "trades": 2,
+              "net_pnl": -13.4213
+            },
+            "9": {
+              "trades": 4,
+              "net_pnl": 3.7906999999999997
+            },
+            "21": {
+              "trades": 2,
+              "net_pnl": 537.6507
+            },
+            "1": {
+              "trades": 2,
+              "net_pnl": -24.6935
+            },
+            "7": {
+              "trades": 1,
+              "net_pnl": 3573.5636
+            },
+            "11": {
+              "trades": 1,
+              "net_pnl": 16.3085
+            },
+            "16": {
+              "trades": 1,
+              "net_pnl": -1.2173
+            }
+          },
+          "by_tag": {
+            "loss": {
+              "trades": 46,
+              "net_pnl": -15243.9115
+            },
+            "scalp": {
+              "trades": 27,
+              "net_pnl": -2612.6794999999997
+            },
+            "win": {
+              "trades": 34,
+              "net_pnl": 9171.006999999998
+            },
+            "intraday": {
+              "trades": 53,
+              "net_pnl": -3460.2250000000017
+            }
+          }
+        }
+      },
+      "duration_ms": 4.222,
+      "caller": "mcp"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.666976+00:00",
+      "kind": "function: analyze_journal text",
+      "request": {
+        "module": "joulyzer",
+        "fn": "analyze_journal",
+        "args": {
+          "csv_path": "verifiable_usage_records/live_usage_inputs/bogus_no_pnl_or_price.csv",
+          "format": "text"
+        }
+      },
+      "response": {
+        "status": "error",
+        "error": "JournalLoadError: Could not identify a PnL or entry_price column. Headers found: ['foo', 'bar']"
+      },
+      "duration_ms": 0.646,
+      "caller": "function"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.667683+00:00",
+      "kind": "CLI: analyze_journal text",
+      "request": {
+        "method": "subprocess.run",
+        "cmd": [
+          "/usr/bin/python",
+          "-m",
+          "joulyzer",
+          "/nonexistent/journal.csv"
+        ],
+        "cwd": ".",
+        "csv_path": "/nonexistent/journal.csv",
+        "format": "text"
+      },
+      "response": {
+        "status": "error",
+        "returncode": 2,
+        "stderr": "error: File not found: /nonexistent/journal.csv"
+      },
+      "duration_ms": 68.902,
+      "caller": "cli"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.736681+00:00",
+      "kind": "function: analyze_journal json",
+      "request": {
+        "module": "joulyzer",
+        "fn": "analyze_journal",
+        "args": {
+          "csv_path": "/nonexistent/journal.csv",
+          "format": "json"
+        }
+      },
+      "response": {
+        "status": "error",
+        "error": "JournalLoadError: File not found: /nonexistent/journal.csv"
+      },
+      "duration_ms": 0.04,
+      "caller": "function"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.736742+00:00",
+      "kind": "Bitget live call: GET /api/v2/public/time",
+      "request": {
+        "method": "GET",
+        "url": "https://api.bitget.com/api/v2/public/time",
+        "endpoint": "/api/v2/public/time"
+      },
+      "response": {
+        "status": "ok",
+        "http_status": 200,
+        "latency_ms": 248.0,
+        "data_sample": {
+          "serverTime": "1782330632899"
+        },
+        "data_len": 4,
+        "content_type": "application/json"
+      },
+      "duration_ms": 248.0,
+      "caller": "bitget_live"
+    },
+    {
+      "ts": "2026-06-24T19:50:32.985088+00:00",
+      "kind": "Bitget live call: GET /api/v2/spot/market/tickers?symbol=BTCUSDT",
+      "request": {
+        "method": "GET",
+        "url": "https://api.bitget.com/api/v2/spot/market/tickers?symbol=BTCUSDT",
+        "endpoint": "/api/v2/spot/market/tickers?symbol=BTCUSDT"
+      },
+      "response": {
+        "status": "ok",
+        "http_status": 200,
+        "latency_ms": 348.37,
+        "data_sample": [
+          {
+            "open": "62328.32",
+            "symbol": "BTCUSDT",
+            "high24h": "63407.88",
+            "low24h": "59105.71",
+            "lastPr": "59840.59",
+            "quoteVolume": "489670767.665845",
+            "baseVolume": "7981.261042",
+            "usdtVolume": "489670767.66584448",
+            "ts": "1782330632509",
+            "bidPr": "59840.59",
+            "askPr": "59840.6",
+            "bidSz": "0.052759",
+            "askSz": "1.0453",
+            "openUtc": "62729.21",
+            "changeUtc24h": "-0.04605",
+            "change24h": "-0.03991"
+          }
+        ],
+        "data_len": 4,
+        "content_type": "application/json"
+      },
+      "duration_ms": 348.371,
+      "caller": "bitget_live"
+    },
+    {
+      "ts": "2026-06-24T19:50:33.333958+00:00",
+      "kind": "Bitget live call: GET /api/v2/spot/market/candles?symbol=BTCUSDT&granularity=1min&limit=2",
+      "request": {
+        "method": "GET",
+        "url": "https://api.bitget.com/api/v2/spot/market/candles?symbol=BTCUSDT&granularity=1min&limit=2",
+        "endpoint": "/api/v2/spot/market/candles?symbol=BTCUSDT&granularity=1min&limit=2"
+      },
+      "response": {
+        "status": "ok",
+        "http_status": 200,
+        "latency_ms": 259.27,
+        "data_sample": [
+          [
+            "1782330540000",
+            "59783.41",
+            "59811.66",
+            "59777.69",
+            "59811.66",
+            "3.848292",
+            "230086.02340335",
+            "230086.02340335"
+          ],
+          [
+            "1782330600000",
+            "59811.66",
+            "59860",
+            "59760.78",
+            "59840.59",
+            "16.828416",
+            "1006501.36344313",
+            "1006501.36344313"
+          ]
+        ],
+        "data_len": 4,
+        "content_type": "application/json"
+      },
+      "duration_ms": 259.272,
+      "caller": "bitget_live"
+    }
+  ]
+}

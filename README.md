@@ -268,16 +268,25 @@ writes live under `verifiable_usage_records/integration_run/`.
 infrastructure from three independent angles — a CLI subprocess,
 an in-process Python function call, and a JSON-RPC MCP subprocess
 — across three real input journals and all three output formats,
-plus three deliberate error paths. Every call is captured with a
-UTC timestamp and wall-clock latency into
-[`verifiable_usage_records/live_usage.jsonl`](./verifiable_usage_records/live_usage.jsonl).
-A human-readable summary lives at
-[`live_usage_summary.md`](./verifiable_usage_records/live_usage_summary.md)
-and a machine-readable one at
-[`live_usage_summary.json`](./verifiable_usage_records/live_usage_summary.json).
+plus three deliberate error paths. It also hits three live
+`api.bitget.com` public endpoints so the log proves the infra
+talks to the real exchange.
+
+Every run writes a session-style log matching the pattern from
+`hasbunallah01/quant-copilot/logs/live-usage-latest.md`:
+
+- [`live-usage-latest.md`](./verifiable_usage_records/live-usage-latest.md) —
+  human-readable session timeline (numbered events, **Request** /
+  **Response** JSON blocks, per-caller summary)
+- [`live-usage-latest.json`](./verifiable_usage_records/live-usage-latest.json) —
+  same session, machine-readable, full payloads
+- `live-usage-<ISO-timestamp>.{json,md}` — timestamped archive copy
+  (keeps the most recent 5 runs)
+- [`live_usage_inputs/`](./verifiable_usage_records/live_usage_inputs) —
+  the real CSVs the harness consumed
 
 ```bash
-python scripts/live_usage_harness.py     # ~30 calls, <1s wall-clock
+python scripts/live_usage_harness.py     # ~33 calls, ~2s wall-clock
 # or include in the one-shot:
 bash scripts/verify_submission.sh
 ```
@@ -318,9 +327,9 @@ verifiable_usage_records/
     bitget_api_call_log.jsonl       # 240 simulated Bitget API calls
     agent_session_journal.csv       # resulting joulyzer journal
     agent_tool_call_result.json     # what the agent "received"
-  live_usage.jsonl                 # live usage record (30 calls, 3 callers, 3 journals, 3 formats + errors)
-  live_usage_summary.json           # per-caller aggregates (machine-readable)
-  live_usage_summary.md             # per-caller aggregates (human-readable table)
+  live-usage-latest.md             # LIVE session timeline (judge-readable)
+  live-usage-latest.json           # LIVE session (machine-readable, full payloads)
+  live-usage-<TS>.{json,md}        # timestamped archive copies
   live_usage_inputs/                # real CSVs the live harness consumed
   live_mcp_session.log.jsonl        # narrower MCP wire-traffic log
   live_session/

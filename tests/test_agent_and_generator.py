@@ -132,54 +132,51 @@ def test_mcp_manifest_has_tool():
 
 
 def test_live_usage_harness_artifact_shape(tmp_path: Path):
-    """The live_usage harness writes JSONL + summary JSON + summary MD.
-
-    We don't run the full harness here (it spawns subprocesses); we just
-    check the schema is what we documented. Run ``scripts/live_usage_harness.py``
-    (or ``bash scripts/verify_submission.sh``) to actually populate it.
+    """Validate the schema of the live_usage_latest.json artifact
+    (matches the reference pattern from hasbunallah01/quant-copilot).
+    Run ``scripts/live_usage_harness.py`` (or ``bash scripts/verify_submission.sh``)
+    to actually populate it.
     """
     import json as _json
 
-    expected_keys = {
-        "ts",
-        "ts_end",
-        "latency_ms",
-        "caller",
-        "operation",
-        "input_journal",
-        "input_format",
-        "status",
-        "exit_code",
-        "error",
-        "output_size_bytes",
-        "output_preview",
-    }
-    sample_record = {
-        "ts": "2026-06-24T19:38:19.848595Z",
-        "ts_end": "2026-06-24T19:38:19.860439Z",
-        "latency_ms": 11.844,
-        "caller": "cli",
-        "operation": "cli:text",
-        "input_journal": "/tmp/example.csv",
-        "input_format": "text",
-        "status": "ok",
-        "exit_code": 0,
-        "error": None,
-        "output_size_bytes": 1073,
-        "output_preview": "================ Joulyzer Report",
-    }
-    assert expected_keys.issubset(sample_record.keys())
-
-    # If the harness has been run, the on-disk JSONL must conform.
     repo_root = Path(__file__).resolve().parents[1]
-    usage_log = repo_root / "verifiable_usage_records" / "live_usage.jsonl"
-    if usage_log.exists():
-        with usage_log.open() as f:
-            for i, line in enumerate(f):
-                if not line.strip():
-                    continue
-                rec = _json.loads(line)
-                assert expected_keys.issubset(rec.keys()), f"line {i} missing keys"
-                assert rec["caller"] in {"cli", "function", "mcp"}
-                assert rec["status"] in {"ok", "error"}
-                assert isinstance(rec["latency_ms"], (int, float))
+    latest = repo_root / "verifiable_usage_records" / "live-usage-latest.json"
+    if not latest.exists():
+        # Don't fail the suite if the harness hasn't been run yet.
+        return
+
+    d = _json.loads(latest.read_text())
+
+    # Top-level shape.
+    for key in (
+        "session_id",
+        "started_at",
+        "ended_at",
+        "duration_seconds",
+        "summary",
+        "by_caller",
+        "by_kind",
+        "records",
+    ):
+        assert key in d, f"missing top-level key: {key}"
+
+    # Per-record shape.
+    expected_record_keys = {"ts", "kind", "request", "response", "duration_ms", "caller"}
+    for i, rec in enumerate(d["records"]):
+        assert expected_record_keys.issubset(rec.keys()), f"record {i} missing keys"
+        assert rec["caller"] in {"cli", "function", "mcp", "bitget_live"}
+        assert rec["response"]["status"] in {"ok", "error"}
+        assert isinstance(rec["duration_ms"], (int, float))
+
+    # by_caller buckets.
+    for caller in ("cli", "function", "mcp"):
+        assert caller in d["by_caller"], f"missing caller bucket: {caller}"
+
+    # Markdown sibling exists and has the standard header.
+    md = repo_root / "verifiable_usage_records" / "live-usage-latest.md"
+    if md.exists():
+        text = md.read_text()
+        assert "Session ID" in text
+        assert "Timeline" in text
+        assert "**Request**" in text
+        assert "**Response**" in text
