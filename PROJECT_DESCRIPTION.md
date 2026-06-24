@@ -154,18 +154,25 @@ faster. Joulyzer is one piece of that.
 | **Project description** (this file)                 | `PROJECT_DESCRIPTION.md`                                                         |
 | **Public GitHub repo**                              | https://github.com/visitsolo1/Joulyzer                                            |
 | **README** with install / integration / usage       | `README.md`                                                                       |
+| **INSTALL** — 3-command zero-to-running guide       | `INSTALL.md`                                                                      |
 | **Verifiable usage record #1 — test logs**         | `verifiable_usage_records/pytest_run.log` (16/16 passed)                          |
 | **Verifiable usage record #2 — sample I/O**        | `verifiable_usage_records/cli_text_run.txt` + `integration_run/agent_tool_call_result.json` |
-| **Verifiable usage record #3 — API call log**      | `verifiable_usage_records/integration_run/bitget_api_call_log.jsonl` (240 simulated Bitget calls with timestamps) |
-| **Verifiable usage record #4 — integration example** | `examples/agent_integration.py` (another developer can run it via the README)   |
+| **Verifiable usage record #3 — simulated API log** | `verifiable_usage_records/integration_run/bitget_api_call_log.jsonl` (240 simulated Bitget calls with timestamps) |
+| **Verifiable usage record #4 — LIVE API call log** | `verifiable_usage_records/live_mcp_session.log.jsonl` (real JSON-RPC traffic between a client subprocess and the joulyzer MCP server) |
+| **Verifiable usage record #5 — integration example** | `examples/agent_integration.py` + `scripts/mcp_client_demo.py` (another developer can run them via `bash scripts/verify_submission.sh`) |
 | **Demo video** (optional)                           | _Not submitted — repo is self-runnable, judges can `python -m pytest tests/ -v` immediately_ |
 | **Deployment link** (optional)                      | _Not submitted — joulyzer is a library, not a hosted service_                     |
 
 Reproducing the verifiable artifacts (no API keys, no network):
 
 ```bash
+git clone https://github.com/visitsolo1/Joulyzer.git
+cd Joulyzer
 pip install -e ".[test]"
-python -m pytest tests/ -v                # → 16 passed
-python examples/agent_integration.py      # writes integration_run/*
-python -m joulyzer.agent --manifest       # prints MCP manifest
+bash scripts/verify_submission.sh     # regenerates every artifact
 ```
+
+`verify_submission.sh` runs the test suite, regenerates the simulated
+Bitget API log, regenerates the live MCP usage log against a real MCP
+server subprocess, and re-emits the tool schema + MCP manifest. Every
+artifact is byte-stable on rerun.

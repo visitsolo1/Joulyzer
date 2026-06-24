@@ -178,17 +178,25 @@ data, no schema change for the agent.
 
 ## Quick start
 
-```bash
-# 1. Install (editable, no extra deps)
-pip install -e .
+> **Install in 3 commands.** Full step-by-step (incl. PEP 668 / Termux / air-gapped
+> variants) lives in [`INSTALL.md`](./INSTALL.md).
 
-# 2. Run on the bundled sample journal
+```bash
+git clone https://github.com/visitsolo1/Joulyzer.git
+cd Joulyzer
+pip install -e ".[test]"
+```
+
+Then:
+
+```bash
+# 1. Run on the bundled sample journal
 python -m joulyzer examples/sample_journal.csv
 
-# 3. JSON output (pipe into another tool or an LLM)
+# 2. JSON output (pipe into another tool or an LLM)
 python -m joulyzer examples/sample_journal.csv --json > report.json
 
-# 4. Run the full test suite (16 tests, no network, no external services)
+# 3. Run the full test suite (16 tests, no network, no external services)
 python -m pytest tests/ -v
 ```
 
@@ -265,17 +273,22 @@ record**. This repo ships four:
 | [`verifiable_usage_records/pytest_run.log`](./verifiable_usage_records/pytest_run.log) | 16/16 tests pass; reproducible on every CI run                              |
 | [`verifiable_usage_records/cli_text_run.txt`](./verifiable_usage_records/cli_text_run.txt) | Sample input → text + JSON output via the CLI                                |
 | [`verifiable_usage_records/integration_run/`](./verifiable_usage_records/integration_run/) | API-call log + sample input + sample output from a real agent tool call    |
+| **[`verifiable_usage_records/live_mcp_session.log.jsonl`](./verifiable_usage_records/live_mcp_session.log.jsonl)** | **Live MCP usage log** — real JSON-RPC traffic between a client subprocess and the joulyzer MCP server (`tools/list`, `tools/call` across 3 formats, error path, idempotency check). Every line carries a UTC timestamp. |
 | [`verifiable_usage_records/tool_schema.json`](./verifiable_usage_records/tool_schema.json) + [`mcp_manifest.json`](./verifiable_usage_records/mcp_manifest.json) | Machine-readable tool surface — judges can curl/inspect directly           |
 
 Reproducing them locally (no API keys, no network):
 
 ```bash
+# See INSTALL.md for the 3-command install.
 pip install -e ".[test]"
 python -m pytest tests/ -v                 # → 16 passed
 python -m joulyzer examples/sample_journal.csv --json
 python examples/agent_integration.py       # writes integration_run/*
+python scripts/mcp_client_demo.py          # writes live_mcp_session.log.jsonl
 python -m joulyzer.agent --schema > tool_schema.json
 python -m joulyzer.agent --manifest > mcp_manifest.json
+# or one-shot:
+bash scripts/verify_submission.sh
 ```
 
 ## Project layout
@@ -298,6 +311,9 @@ tests/
 examples/
   sample_journal.csv               # 8-trade sample for CLI demo
   agent_integration.py             # end-to-end agent tool-call example
+scripts/
+  verify_submission.sh             # regenerates every verifiable artifact
+  mcp_client_demo.py               # live MCP client → server demo (logs traffic)
 verifiable_usage_records/
   pytest_run.log                   # full test log
   cli_text_run.txt                  # CLI text + JSON output
@@ -305,11 +321,16 @@ verifiable_usage_records/
     bitget_api_call_log.jsonl       # 240 simulated Bitget API calls
     agent_session_journal.csv       # resulting joulyzer journal
     agent_tool_call_result.json     # what the agent "received"
+  live_mcp_session.log.jsonl        # LIVE MCP usage log (real subprocess traffic)
+  live_session/
+    live_journal.csv                # journal used by the live MCP session
   tool_schema.json                  # JSON-Schema tool definition
   mcp_manifest.json                 # MCP server manifest
-.github/workflows/tests.yml        # CI across Python 3.9–3.12
+.github/workflows/tests.yml        # (CI config in docs/github-actions-tests.yml; user enables via GitHub UI since PAT lacks workflow scope)
+docs/github-actions-tests.yml       # CI workflow config (copy to .github/workflows/ to enable)
 LICENSE                             # MIT
 README.md                           # you are here
+INSTALL.md                          # 3-command install + every install variant
 SKILL.md                            # agent-facing description
 PROJECT_DESCRIPTION.md              # 4-part submission blurb
 ```
